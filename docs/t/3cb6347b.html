@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="format-detection" content="telephone=no">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="정재린님 수강 시간표 · SBS아카데미 AIX학원 강남지점">
+<title>정재린님 수강 시간표</title>
+<!-- 260812: CSS가 처음부터 Pretendard를 지정했으나 웹폰트를 부르지 않아 기기 기본 고딕으로 떨어져 있었다.
+     동적 서브셋(한글 자소 단위로 필요한 조각만 내려받음)이라 모바일에서도 가볍고, 실패하면 종전 기본 고딕으로 되돌아간다. -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root{
+    /* 260820: 보조 텍스트 명도 대비를 WCAG 2.2 AA(4.5:1)로 올렸다.
+       구값 --ink-faint #8B929E는 흰 배경에서 3.13:1, --off-tx #98A0AE는 2.63:1로 기준 미달이었다.
+       작은 글씨(11~13px)에 주로 쓰이는 토큰이라 밝은 화면·고령 사용자에서 먼저 읽히지 않는다. */
+    --bg:#F0F8FF; --surface:#FFFFFF; --ink:#000080; --ink-soft:#26356B; --ink-faint:#26356B;  /* 260902: 여름·겨울 쿨톤 사다리. 흰 배경 16.0 · 11.6:1 */
+    --line:#C2D6FE; --border:#26356B; --grid-line:#D9E7FE;   /* 260902: --line=누를 수 없는 상자·구분선, --border=누를 수 있는 것의 테두리 */
+    --k0-bg:hsl(237.0,60%,90%); --k0-tx:hsl(237.0,60%,22%); --k0-bd:hsl(237.0,60%,74%); --sw-visual-bg:hsl(241,60%,90%); --sw-visual-tx:hsl(241,60%,26%); --k1-bg:hsl(245.0,54%,90%); --k1-tx:hsl(245.0,54%,22%); --k1-bd:hsl(245.0,54%,74%);
+    --off-bg:#D9E7FE; --off-tx:#26356B;   /* 260902: 9.3:1 */
+    /* 260831 오영선님 지시로 강조색을 자주에서 파랑으로 옮겼다. 과목 색이 전부 파랑 계열이 되면서
+       자주 강조·노랑 안내가 화면에서 따로 놀았다. 면담은 같은 파랑 계열의 남보라 단을 쓰고
+       뜻은 "면담" 글자 태그가 지고 간다(색만으로 구분하지 않는다). */
+    --accent:#0B4FA8; --accent-bg:rgba(11,79,168,.07);    /* 흰 배경 7.78:1 · 본문 배경 7.20:1 */
+    --ev:#3A46B8; --ev-bg:rgba(58,70,184,.08);            /* 7.64:1 */
+    --notice-bg:#D9E7FE; --notice-tx:#0B3E86;   /* 260902: 8.2:1 */
+    --chip-bg:#D9E7FE; --tab-on-bg:#000080; --tab-on-tx:#FFFFFF; --flag-bg:rgba(255,255,255,.62);
+    /* 260823: 강조면(핑크·남보라) 위에 얹는 글자색을 토큰으로 분리했다. 라이트에서는 흰 글자가
+       4.62:1 · 5.59:1로 통과하지만 다크에서는 2.82:1 · 2.34:1로 AA에 크게 미달했다. */
+    --on-accent:#FFFFFF; --on-ev:#FFFFFF;
+    --focus:#0B4FA8;      /* 포커스 링. 흰 배경 대비 7.06:1 → 비텍스트 3:1 기준을 크게 넘는다 */
+    /* ZOOM 파랑을 두 토큰으로 나눈다(260820). 구값 #2D8CFF는 흰 배경 위 글자로도, 흰 글자를 얹는
+       채움 버튼 배경으로도 3.33:1이라 양쪽 다 AA 미달이었다. --zoom=선·글자용, --zoom-solid=채움 배경용. */
+    --ai-bg:hsl(212,60%,88%); --ai-tx:hsl(212,70%,24%); --zoom:#0955A4; --zoom-solid:#0955A4;  /* 260831: AI 칩 청록 -> 파랑 8.45:1 · ZOOM 7.38:1 */
+    --sh:0 1px 2px rgba(16,30,58,.04), 0 10px 22px -18px rgba(16,30,58,.30);
+    /* 260824: 지난 정보 흐림 한 단계. 라이트·다크 공통이라 여기 한 번만 선언한다.
+       .55에 --ink를 곱하면 라이트 3.84:1 · 다크 5.19:1 → 비텍스트 기준 3:1을 넘긴다.
+       이 값을 더 내리면(.45 → 라이트 2.86:1) 기준이 무너지니 낮추지 말 것. */
+    --dim-past:.55;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0D1220; --surface:#151B29; --ink:#E6EAF4; --ink-soft:#A6B0C4; --ink-faint:#9EA9BE;  /* 260830: faint 5.57 -> 7.13 */
+      --line:#242C3C; --border:#7FB4FF; --grid-line:#1E2534;
+      --k0-bg:hsl(237.0,46%,30%); --k0-tx:hsl(237.0,76%,86%); --k0-bd:hsl(237.0,60%,48%); --sw-visual-bg:hsl(241,60%,81%); --sw-visual-tx:hsl(241,60%,26%); --k1-bg:hsl(245.0,40%,32%); --k1-tx:hsl(245.0,70%,87%); --k1-bd:hsl(245.0,54%,50%);
+      --off-bg:#1E2534; --off-tx:#AAB5CA;   /* 260831: 5.96 -> 7.58 */
+      --accent:#7FB4FF; --accent-bg:rgba(127,180,255,.10);  /* 8.80:1 · 카드 위 8.02:1 */
+      --ev:#9AA4F2; --ev-bg:rgba(154,164,242,.14);
+      --notice-bg:#152438; --notice-tx:#9FC4F5;   /* 8.71:1 */
+      --chip-bg:#1E2534; --tab-on-bg:#E6EAF4; --tab-on-tx:#151B29; --flag-bg:rgba(0,0,0,.35);
+      --on-accent:#0D1220; --on-ev:#0D1220;   /* 6.64:1 · 7.99:1 (흰 글자는 2.82:1 · 2.34:1로 미달이었다) */
+      --focus:#7FB4FF;                        /* 다크 배경 대비 7.30:1 */
+      --ai-bg:hsl(212,40%,24%); --ai-tx:hsl(212,60%,82%); --zoom:#66B0FF; --zoom-solid:#12539E;  /* 260831: AI 칩 7.07:1 · ZOOM 7.48:1 */
+      --sh:0 1px 2px rgba(0,0,0,.30), 0 10px 22px -18px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0D1220; --surface:#151B29; --ink:#E6EAF4; --ink-soft:#A6B0C4; --ink-faint:#9EA9BE;  /* 260830: faint 5.57 -> 7.13 */
+    --line:#242C3C; --border:#7FB4FF; --grid-line:#1E2534;
+    --k0-bg:hsl(237.0,46%,30%); --k0-tx:hsl(237.0,76%,86%); --k0-bd:hsl(237.0,60%,48%); --sw-visual-bg:hsl(241,60%,81%); --sw-visual-tx:hsl(241,60%,26%); --k1-bg:hsl(245.0,40%,32%); --k1-tx:hsl(245.0,70%,87%); --k1-bd:hsl(245.0,54%,50%);
+    --off-bg:#1E2534; --off-tx:#AAB5CA;   /* 260831: 5.96 -> 7.58 */
+    --accent:#7FB4FF; --accent-bg:rgba(127,180,255,.10);  /* 8.80:1 · 카드 위 8.02:1 */
+    --ev:#9AA4F2; --ev-bg:rgba(154,164,242,.14);
+    --notice-bg:#152438; --notice-tx:#9FC4F5;   /* 8.71:1 */
+    --chip-bg:#1E2534; --tab-on-bg:#E6EAF4; --tab-on-tx:#151B29; --flag-bg:rgba(0,0,0,.35);
+    --on-accent:#0D1220; --on-ev:#0D1220;
+    --focus:#7FB4FF;
+    --ai-bg:hsl(212,40%,24%); --ai-tx:hsl(212,60%,82%); --zoom:#66B0FF; --zoom-solid:#12539E;  /* 260831: AI 칩 7.07:1 · ZOOM 7.48:1 */
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  /* 260823 유니버설 디자인 보강. 아래 넷은 색·크기가 아니라 "쓸 수 있는가"에 관한 것이다.
+     (1) 동작 최소화: 기기에서 동작 줄이기를 켠 사람에게 슬라이드·부드러운 스크롤을 걸지 않는다(WCAG 2.3.3). */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{ animation-duration:.01ms!important; animation-iteration-count:1!important;
+      transition-duration:.01ms!important; scroll-behavior:auto!important; }
+  }
+  /* (2) 포커스 표시: 키보드로만 쓰는 사람이 지금 어디 있는지 늘 보이게. 일부 버튼이 아니라 전부. */
+  a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible{
+    outline:3px solid var(--focus); outline-offset:2px; border-radius:6px; }
+  /* (3) 건너뛰기 링크: 상단 고정바를 지나 본문으로 바로 간다(WCAG 2.4.1). */
+  .skip{ position:absolute; left:-9999px; top:0; width:1px; height:1px; overflow:hidden; }
+  .skip:focus{ left:10px; top:10px; width:auto; height:auto; z-index:60; padding:12px 16px;
+    background:var(--surface); color:var(--ink); border:2px solid var(--focus); border-radius:10px;
+    font-size:16px; font-weight:700; text-decoration:none; }
+  /* (4) 눈에는 안 보이되 스크린리더에는 읽히는 글. 색·모양으로만 전하던 뜻을 글로도 함께 전한다. */
+  .sr{ position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden;
+    clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0; }
+  [hidden]{ display:none!important; }          /* 빈 요소가 박스로 남는 문제 차단 */
+  /* 260823: 본문 19px · 줄높이 1.8 · keep-all (design-system 7절 가독성 기준).
+     종전에는 body에 크기 선언이 없어 브라우저 기본 16px로 떨어져 있었다. */
+  body{ background:var(--surface); color:var(--ink); font-size:19px; font-weight:400; line-height:1.8;
+    word-break:keep-all; -webkit-text-size-adjust:100%;
+    font-family:"Pretendard Variable","Pretendard",-apple-system,BlinkMacSystemFont,"Malgun Gothic",sans-serif;
+    -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:560px; margin:0 auto; padding:14px 18px calc(80px + env(safe-area-inset-bottom)); }
+  a{ color:var(--accent); }
+  /* 260812 다듬기: 시각·날짜·회차 숫자를 고정폭으로 맞춰 줄마다 자릿수가 흔들리지 않게 한다.
+     Pretendard가 실제로 올라오면 굵기가 제대로 찍히므로, 보조 라벨은 700으로 낮춰
+     굵은 글씨가 화면 전체를 덮지 않게 한다(굵기는 내용에만). */
+  .t-ttl,.t-st,.c-meta,.c-days,.c-pn,.c-rm,.c-dd,.week-label,.tab,.tst,.tnm,.ev-when,.ev-dd{
+    font-variant-numeric:tabular-nums; }
+
+  /* 상단 고정 바 → 스크롤 중에도 "누구 시간표인지" 항상 보이게 */
+  .topbar{ position:fixed; top:0; left:0; right:0; z-index:35; height:48px; display:flex; align-items:center; gap:8px;
+    padding:0 14px; background:var(--surface); border-bottom:1px solid var(--line);
+    transform:translateY(-100%); transition:transform .16s ease; }
+  .topbar.on{ transform:none; }
+  .topbar .tb-nm{ font-size:17px; font-weight:800; letter-spacing:-.01em; }
+  .topbar .tb-dt{ margin-left:auto; font-size:16px; font-weight:700; color:var(--ink-soft); }
+
+  /* 동반자 페이지에서 내 시간표로 돌아가기 */
+  .backbar{ display:inline-flex; align-items:center; gap:7px; min-height:44px; margin-bottom:4px;
+    font-size:17px; font-weight:800; color:var(--accent); text-decoration:none; }
+  .backbar .ar{ font-size:18px; }
+
+  /* 260812: 제목과 학과·지점 줄을 한 줄로 붙인다(좁은 화면에서는 자연스럽게 넘어간다) */
+  .head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 9px; }
+  .head h1{ font-size:clamp(22px,5.6vw,26px); font-weight:800; margin:0; letter-spacing:-.035em; }
+  .head .sub{ font-size:16px; font-weight:500; color:var(--ink-soft); margin-top:0; letter-spacing:0; }
+  .whose{ display:inline-block; margin-left:6px; padding:3px 9px; border-radius:8px; vertical-align:2px;
+    background:var(--accent); color:var(--on-accent); font-size:16px; font-weight:800; letter-spacing:0; }
+
+  /* 위계 규칙: 라벨은 작은 회색, 큰 글씨는 "내용"에만 준다(시각·과목명).
+     강조색(핑크)은 오늘·지금·면담에만 쓴다. */
+  .today{ margin-top:20px; }
+  .t-h{ display:flex; align-items:baseline; gap:8px; padding-bottom:8px; }
+  .t-ttl{ font-size:17px; font-weight:800; color:var(--ink-soft); letter-spacing:0; }
+  /* 260812: 날짜와 오늘 현황을 양끝으로 벌리지 않고 바로 붙여 쓴다 → "8/12(수) · 오늘 수업 1개" */
+  .t-st{ font-size:17px; font-weight:700; color:var(--ink-soft); white-space:nowrap; }
+  .t-st:before{ content:"·"; color:var(--ink-faint); margin-right:6px; font-weight:700; }
+  .today.yes .t-st{ color:var(--accent); }
+  /* 오늘 일정 = 세로 레일 + 점(시간 순서가 눈으로 읽히게) */
+  .tlist{ position:relative; }
+  .tlist:before{ content:""; position:absolute; left:5px; top:28px; bottom:28px; width:2px;
+    background:var(--line); border-radius:2px; }
+  .trow{ position:relative; display:flex; align-items:flex-start; gap:14px; padding:14px 0; border-top:1px solid var(--line); }
+  .trow:first-child{ border-top:none; }
+  .tdot{ width:12px; height:12px; border-radius:50%; margin-top:7px; flex:none;
+    box-shadow:0 0 0 4px var(--surface); }
+  .tmain{ flex:1; min-width:0; }
+  .ttop{ display:flex; align-items:baseline; gap:9px; }
+  .tm{ font-size:20px; font-weight:800; letter-spacing:-.035em; font-variant-numeric:tabular-nums; }
+  .tst{ font-size:16px; font-weight:800; color:var(--ink-soft); }
+  .tst.now{ color:var(--accent); }
+  .tnm{ font-size:18px; font-weight:700; margin-top:4px; line-height:1.5; }
+  .tnm .rmx{ color:var(--ink-soft); font-weight:600; }
+  /* ── 지난 항목 흐림(260824 오영선님 판단으로 복원) ───────────────────
+     260823에 흐리기를 전부 걷어냈다가 260824에 되돌렸다. "지난 과목은 흐림이 맞다"가 정본이다.
+     다만 걷어낼 때 넣은 "종료" 글자·취소선은 그대로 둔다 → 흐림(한눈에)+글자(확실히)를 함께 쓴다.
+     복원하면서 셋을 지켰다.
+       (가) 흐림을 겹쳐 걸지 않는다. 부모 opacity는 자식에 곱해져 순식간에 안 보이게 된다.
+            그래서 줄 전체(.trow.done{opacity})가 아니라 "지난 정보"인 부분에만 건다.
+       (나) 흐린 뒤에도 최소 3:1을 지킨다. 흐릴 자리의 바탕 글자색을 --ink-soft에서 --ink로
+            올려 두고 .55를 곱한다 → 라이트 3.84:1 · 다크 5.19:1(--ink-soft를 .55로 곱하면
+            라이트 2.38:1로 무너진다. 이게 260823에 흐림이 기준을 못 넘던 원인이었다).
+       (다) 상태 글자(.tst "종료")·링크·버튼에는 흐림을 걸지 않는다. 흐린 것 바로 옆에
+            흐리지 않은 글자 라벨이 항상 남아 있어야 소리·저시력·색각 이상에서도 읽힌다.
+     ※ .trow는 현재 면담 일정(.trow.ev)에만 쓰이고 .done은 붙지 않는다(evRow 참조).
+        규칙만 정본대로 되돌려 둔다. */
+  .trow.done .tdot{ opacity:.45; }   /* 글자 없는 색 점 */
+  .trow.done .tm,.trow.done .tnm{ color:var(--ink); opacity:var(--dim-past); }
+  .trow.done .tst{ opacity:1; }      /* "종료" 글자 라벨은 흐리지 않는다 */
+  /* ZOOM = 이 페이지에서 가장 중요한 행동 → 유일한 채움 버튼.
+     260812: 파란 발광 그림자를 걷어내고 굵기·모서리를 낮춰 버튼이 화면을 잡아먹지 않게 한다. */
+  /* 260820: 터치 타깃 최소 44×44(iOS HIG·Material 48dp 기준의 하한). 42px는 성인 손가락 접촉면보다 작다. */
+  .zbtn{ flex:none; display:inline-flex; align-items:center; gap:7px; min-height:44px; padding:0 15px; margin-top:2px;
+    border-radius:10px; background:var(--zoom-solid); color:#fff!important; font-size:16px; font-weight:700;
+    letter-spacing:-.01em; text-decoration:none; white-space:nowrap; }
+  .zbtn svg{ width:15px; height:15px; }
+  .zbtn:focus-visible,.tab:focus-visible,.mate-tg:focus-visible,.tbtn:focus-visible{ outline:3px solid var(--accent); outline-offset:2px; }
+  .t-next{ padding:13px 0; border-top:1px solid var(--line); font-size:17px; font-weight:700; color:var(--ink-soft); }
+  .t-next b{ color:var(--ink); font-weight:800; }
+  .trow.ev .tdot{ background:var(--ev); }
+  .trow.ev .tnm{ color:var(--ev); font-weight:800; }
+
+  .evnext{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  .evnext .ev-tag{ font-size:16px; font-weight:800; color:var(--on-ev); background:var(--ev); border-radius:8px; padding:4px 11px; }
+  .evnext .ev-when{ font-size:18px; font-weight:800; }
+  .evnext .ev-dd{ margin-left:auto; font-size:16px; font-weight:800; color:var(--ev); }
+  .mate-today{ display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-top:12px; }
+  .mate-today .mt-tag{ font-size:16px; font-weight:800; color:var(--ink-soft); }
+  .mate-today .mt-item{ font-size:16px; font-weight:700; color:var(--ink-soft); }
+  .mate-today .mt-none{ font-size:16px; color:var(--ink-soft); }
+
+  .notice{ margin-top:16px; padding-left:12px; border-left:3px solid var(--notice-tx);
+    color:var(--ink); font-size:18px; line-height:1.8; }
+  .notice div+div{ margin-top:6px; }
+  .notice b{ font-weight:800; color:var(--notice-tx); }
+
+  /* 섹션 라벨은 전부 같은 급(작은 회색) → 큰 글씨는 내용에만 쓴다 */
+  .sec{ margin-top:26px; padding-top:18px; border-top:1px solid var(--line); }
+  .sec-h{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:0 0 8px; min-height:24px; }
+  /* 260831: 평일·주말 단추가 들어오면서 375px에서 제목이 두 줄로 접혔다. 좁을 때는 단추를 다음 줄로 내린다. */
+  @media (max-width:480px){ .sec-h .wkseg{ margin-left:0; width:100%; }
+    .sec-h .wkseg button{ flex:1; } }
+  .sec-h h2{ margin:0; font-size:17px; font-weight:700; color:var(--ink-soft); letter-spacing:0; }
+
+  /* 주·월 탭 → 알약 대신 밑줄 탭 */
+  .tabs{ display:flex; gap:16px; overflow-x:auto; scrollbar-width:none; border-bottom:1px solid var(--line); }
+  .tabs::-webkit-scrollbar{ display:none; }
+  .tab{ position:relative; flex:0 0 auto; border:none; background:none; color:var(--ink-faint);
+    min-height:44px; padding:0 1px; font-size:17px; font-weight:800; cursor:pointer; font-family:inherit; }
+  .tab.on{ color:var(--ink); }
+  .tab.on:after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:var(--accent); }
+  #mtabs .tab{ font-size:16px; color:var(--ink-soft); }
+  /* 260812: 주 기간을 "주간 시간표" 제목 옆으로 올려 한 줄로 붙인다 */
+  .week-label{ font-size:16px; font-weight:700; color:var(--ink-soft); }
+  .week-label:before{ content:"·"; margin-right:5px; }
+  .mate-tg{ margin-left:auto; display:inline-flex; align-items:center; gap:7px; border:none; background:none;
+    color:var(--ink-soft); min-height:44px; padding:0 1px; font-size:16px; font-weight:800;
+    cursor:pointer; font-family:inherit; }
+  .mate-tg .sw{ width:30px; height:17px; border-radius:8px; background:var(--ink-faint); position:relative; flex:none; transition:background .144s; }
+  .mate-tg .sw:after{ content:""; position:absolute; top:2px; left:2px; width:13px; height:13px; border-radius:4px;
+    background:#fff; transition:transform .144s; }
+  .mate-tg[aria-pressed="true"]{ color:var(--accent); }
+  .mate-tg[aria-pressed="true"] .sw{ background:var(--accent); }
+  .mate-tg[aria-pressed="true"] .sw:after{ transform:translateX(13px); }
+  .mate-open{ display:inline-flex; align-items:center; min-height:44px; margin-top:3px; font-size:17px; font-weight:700; color:var(--ink-soft); }
+  .mate-note{ margin-top:8px; font-size:16px; color:var(--ink-soft); }
+
+  /* 주간 그리드 */
+  .ttwrap{ overflow-x:auto; overscroll-behavior-x:contain;
+    scroll-snap-type:x proximity; scroll-padding-left:40px; }
+  .daycol, .dayh{ scroll-snap-align:start; }
+  /* 260831: 5칸이 좁은 화면을 넘쳐 금요일이 없어 보였다. 옆으로 미는 것을 글로 알린다. */
+  .ttscroll{ display:none; margin:8px 0 0; font-size:16px; font-weight:600; color:var(--ink-soft); }
+  @media (max-width:700px){ .ttscroll{ display:block; } }
+  .tt{ display:grid; position:relative; min-width:100%; }
+  .dayh{ text-align:center; padding:1px 0 7px; border-bottom:1px solid var(--line); }
+  .dayh .wd{ font-size:16px; font-weight:700; color:var(--ink-soft); }
+  .dayh .dt{ display:block; width:30px; height:30px; line-height:30px; margin:3px auto 0; border-radius:8px;
+    font-size:16px; font-weight:800; color:var(--ink); font-variant-numeric:tabular-nums; }
+  .dayh.today-h .wd{ color:var(--accent); font-weight:800; }
+  .dayh.today-h .dt{ background:var(--accent); color:var(--on-accent); }
+  /* 색만으로 오늘을 알리지 않는다(색각 이상·흑백 인쇄 대응). 동그라미 아래 글자 라벨을 함께 둔다. */
+  .dayh .todaylbl{ display:none; }
+  .dayh.today-h .todaylbl{ display:block; margin-top:2px; font-size:14px; font-weight:800; color:var(--accent); }  /* audit-ok */
+  /* 260823: --ink-faint(#6B7280)는 --chip-bg(#E8EEF8) 위 4.32:1로 AA 미달이었다 -> --ink-soft(5.57:1) */
+  .daycnt{ display:inline-block; margin-top:4px; font-size:16px; font-weight:800; color:var(--ink-soft);
+    background:var(--chip-bg); border-radius:8px; padding:1px 6px; }
+  .corner{ border-bottom:1px solid var(--line); }
+  .timecol{ position:relative; }
+  .tlabel{ position:absolute; right:6px; transform:translateY(-9px); font-size:16px; font-weight:600; color:var(--ink-soft);
+    font-variant-numeric:tabular-nums; }
+  .daycol{ position:relative; border-left:1px solid var(--grid-line); }
+  .daycol.today-col{ background:var(--accent-bg); }
+  .hline{ position:absolute; left:0; right:0; border-top:1px solid var(--grid-line); }
+  .nowline{ position:absolute; left:0; right:0; z-index:3; border-top:2px solid var(--accent); }
+  .nowline:before{ content:""; position:absolute; left:-2px; top:-4px; width:7px; height:7px; border-radius:50%; background:var(--accent); }
+  /* 260830 지적("가독성 넘별로잖아")으로 예외 선언을 걷었다. 칸을 좁히는 대신 칸을 넓힌다.
+     요일 칸에 최소 너비를 주고 넘치면 표가 가로로 밀린다. 글자는 어느 화면에서도 16px 아래로 안 간다. */
+  .blk{ position:absolute; left:2px; right:2px; border-radius:8px; padding:7px 7px 6px; overflow:hidden;
+    font-size:16px; line-height:1.35; }
+  /* 과목명은 칸 높이만큼만 줄을 쓰고 넘치면 말줄임 → 어떤 이름이 와도 잘려 보이지 않는다 */
+  .blk b{ display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden;
+    font-size:16px; font-weight:800; letter-spacing:-.01em; word-break:break-all; }
+  .blk.ln3 b{ -webkit-line-clamp:3; }
+  .blk.ln1 b{ -webkit-line-clamp:1; }
+  .blk .rm{ display:block; font-size:16px; opacity:1; margin-top:3px; font-variant-numeric:tabular-nums; }
+  .blk .flag{ display:inline-block; margin-top:4px; font-size:16px; font-weight:800; background:var(--flag-bg);
+    border-radius:5px; padding:1px 6px; }
+  .blk-split{ box-shadow:inset 0 0 0 1.5px var(--surface); }
+  .blk.today-blk{ box-shadow:inset 0 0 0 2px var(--accent)!important; }
+  .aitag{ display:inline-block; background:var(--ai-bg); color:var(--ai-tx); border-radius:4px; padding:0 5px;
+    font-size:16px; font-weight:800; margin-left:4px; vertical-align:0; }
+  /* 260830 지적("시간표 색깔은 해당 과목 색깔 따라가야지"): 블록 안에서는 AI 칩도 그 과목 색을 쓴다.
+     민트 고정색이 과목 색 위에 얹히면 한 블록에 색이 둘이 되어 어느 계열인지 안 읽힌다.
+     과목별 정리 목록에서는 AI 계열 색을 그대로 둔다(거기서는 계열을 가리키는 신호다). */
+  .blk .aitag{ background:transparent; color:currentColor; box-shadow:inset 0 0 0 1.5px currentColor; }
+  .blk.k0{background:var(--k0-bg);color:var(--k0-tx);box-shadow:inset 0 0 0 1px var(--k0-bd);}
+  .blk.sw-visual{background:var(--sw-visual-bg);color:var(--sw-visual-tx);}
+  .blk.k1{background:var(--k1-bg);color:var(--k1-tx);box-shadow:inset 0 0 0 1px var(--k1-bd);}
+  /* 동반자 수업 = 빗금(내 수업은 항상 단색) */
+  .blk.mate{ background:repeating-linear-gradient(45deg,var(--off-bg) 0 5px,var(--surface) 5px 10px);
+    color:var(--ink-soft); box-shadow:inset 0 0 0 1.5px var(--line); }
+  .blk.mate b{ font-size:16px; }
+  .blk .mine{ display:inline-block; font-size:16px; font-weight:800; opacity:.9; }
+  /* 면담 등 개별 일정 */
+  .blk.ev{ background:var(--ev-bg); color:var(--ev); box-shadow:inset 0 0 0 2px var(--ev); }
+  .evtag{ display:block; margin-top:4px; border-radius:6px; padding:4px; background:var(--ev); color:var(--on-ev);
+    font-size:16px; font-weight:800; line-height:1.3; }
+  .off-day{ position:absolute; inset:0; background:repeating-linear-gradient(-45deg,transparent 0 6px,rgba(152,160,174,.10) 6px 12px); }
+  .off-tag{ position:absolute; top:8px; left:50%; transform:translateX(-50%); font-size:16px; font-weight:800;
+    color:var(--off-tx); background:var(--off-bg); border-radius:6px; padding:2px 6px; white-space:nowrap; }
+  /* 다른 달 날짜 칸. 날짜 칸에는 글자가 있으므로 흐리기를 걸지 않고, 칸 바탕만 옅게 깐다.
+     "몇 월인지"는 aria-label(M/D)과 주 기간 표시가 이미 말해 준다. */
+  .sep-col{ background:var(--line-soft,var(--grid-line)); }
+  .sep-day .wd{ color:var(--ink-soft); }
+  .legend{ display:flex; flex-wrap:wrap; gap:5px 12px; margin-top:11px; padding:0 2px; }
+  .legend span{ display:inline-flex; align-items:center; gap:7px; font-size:16px; color:var(--ink-soft); }
+  .legend i{ width:10px; height:10px; border-radius:3px; flex:none; }
+  .lg-mate{ background:repeating-linear-gradient(45deg,var(--off-bg) 0 3px,var(--surface) 3px 6px)!important;
+    box-shadow:inset 0 0 0 1px var(--line); }
+
+  /* 과목별 정리 → 실선으로만 구분한 목록. 260810부터 오늘 카드와 한 섹션 */
+  .crow{ padding:14px 0; border-top:1px solid var(--line); }
+  /* 종강한 과목(.crow.over) = 이미 지난 정보 → 흐리게. 260824 복원.
+     줄 전체에 opacity를 걸면 그 안의 "종료" 배지·ZOOM 링크·복사 버튼까지 같이 흐려지고
+     흐림이 겹쳐 곱해진다. 그래서 지난 정보에 해당하는 부분만 골라서 건다. */
+  .crow.over .c-bar,.crow.over .cbar{ opacity:.45; }   /* 글자 없는 색 막대 */
+  .crow.over .c-nm,.crow.over .c-rm,.crow.over .c-meta,.crow.over .c-when,
+  .crow.over .c-pn,.crow.over .c-days{ color:var(--ink); opacity:var(--dim-past); }
+  /* 흐리지 않고 남기는 것: "종료" 글자 배지(.c-dd.off) · ZOOM 링크(.c-zm) · 복사 버튼(.c-copy).
+     흐린 줄 옆에 흐리지 않은 글자 라벨이 반드시 하나 남아 있어야 한다. */
+  .c-h{ display:flex; align-items:center; gap:9px; flex-wrap:wrap; }
+  .c-bar{ width:4px; height:17px; border-radius:3px; flex:none; }
+  .c-nm{ font-size:18px; font-weight:800; letter-spacing:-.01em; min-width:0; }
+  /* 260812: 강의실을 과목명 옆으로 올려 아래 줄과 나뉘지 않게 한다 */
+  /* 260831: 요일·시각을 과목명 줄로 올린다(별도 줄 = 스크롤만 먹는 줄바꿈) */
+  .c-when{ font-size:16px; font-weight:600; color:var(--ink-soft); white-space:nowrap;
+    font-variant-numeric:tabular-nums; }
+  .c-rm{ font-size:16px; font-weight:700; color:var(--ink-soft); white-space:nowrap; }
+  .c-rm:before{ content:"·"; margin-right:5px; }
+  .c-tag{ margin-left:auto; font-size:16px; font-weight:700; color:var(--ink-soft); white-space:nowrap; }
+  /* 남은 일수 배지 → 오늘만 강조색, 나머지는 회색 */
+  .c-dd{ margin-left:auto; font-size:16px; font-weight:800; color:var(--ink-soft);
+    white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .c-dd.now{ color:var(--on-accent); background:var(--accent); border-radius:8px; padding:2px 9px; }
+  /* "종료" 배지. 260824 흐림 복원분이지만, 이 배지가 흐린 줄의 유일한 상태 글자라
+     흐림을 얕게(.7)만 걸고 바탕색을 --ink로 올린다 → 라이트 6.29:1 · 다크 7.58:1로
+     본문 기준(4.5:1)까지 넘긴다. 줄은 흐려도 "종료"라는 글자는 또렷하게 읽힌다. */
+  .c-dd.off{ color:var(--ink); opacity:.7; }
+  /* 오늘 수업 줄 = 이 페이지에서 가장 큰 글씨(시각)와 유일한 채움 버튼(ZOOM) */
+  .c-now{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:8px; }
+  .c-now .tm{ font-size:20px; font-weight:900; letter-spacing:-.03em; font-variant-numeric:tabular-nums; }
+  .c-now .zbtn{ margin-left:auto; }
+  /* 오늘 수업이지만 이미 끝난 줄 = 지난 정보 → 시각만 흐린다(260824 복원).
+     바로 옆 "종료" 글자(.tst)는 흐리지 않는다. */
+  .c-now.done .tm{ color:var(--ink); opacity:var(--dim-past); }
+  .c-now.done .tst{ opacity:1; }
+  /* 260812 다듬기: 진행 막대는 정보량이 적으므로 더 얇게 깔고, 메타 줄은 자간만 정리한다 */
+  .c-meta{ font-size:17px; font-weight:500; color:var(--ink-soft); margin-top:8px; letter-spacing:0; }
+  .c-prog{ display:flex; align-items:center; gap:10px; margin-top:10px; }
+  /* 260831: 회차 날짜 전량 나열이 스크롤을 잡아먹어 상태바 옆 주석으로 접었다.
+     details/summary라 JS 없이 열리고 모바일 탭·키보드·보조기기 모두 기본 동작을 쓴다. */
+  .c-prog-d > summary{ cursor:pointer; list-style:none; min-height:44px; }
+  .c-prog-d > summary::-webkit-details-marker{ display:none; }
+  .c-prog-d > summary:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:6px; }
+  .c-more{ font-size:16px; font-weight:600; color:var(--ink-faint); white-space:nowrap; }
+  .c-prog-d[open] .c-more{ color:var(--ink-soft); }
+  .cbar{ flex:1; height:3px; border-radius:2px; background:var(--chip-bg); overflow:hidden; }
+  .cbar > i{ display:block; height:100%; border-radius:2px; }
+  .c-pn{ font-size:16px; font-weight:600; color:var(--ink-soft); white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .c-days{ margin-top:10px; font-size:16px; font-weight:500; color:var(--ink-soft); line-height:1.9; word-break:keep-all; }
+  .c-days b{ color:var(--accent); font-weight:700; }
+  /* 지난 회차 날짜 = 지난 정보 → 흐림 복원(260824). 260823에 넣은 취소선은 그대로 둔다.
+     흐림은 한눈에 훑을 때, 취소선은 확실히 읽을 때 쓰인다. 색·투명도 하나에만 뜻을 싣지 않는다.
+     구값 .45는 --ink-faint 기준 1.83:1이었다. 바탕을 --ink로 올리고 .55를 곱해
+     라이트 3.84:1 · 다크 5.19:1을 확보한다. */
+  .c-days s{ color:var(--ink); opacity:var(--dim-past);
+    text-decoration:line-through; text-decoration-thickness:1.5px; }
+  /* 종강 줄(.crow.over) 안에서는 .c-days가 이미 흐려져 있다 → s에 또 곱하면 .30으로 무너진다.
+     흐림은 한 번만 곱한다(취소선은 그대로 유지). */
+  .crow.over .c-days s{ opacity:1; }
+  /* 260820: 아이콘 크기는 그대로 두고 터치 영역만 44×44로 넓힌다(보이는 크기 ≠ 누르는 크기).
+     줄 간격을 밀지 않으려고 겉보기 상자는 28×28로 두고 투명 :before로 접촉면을 확보한다. */
+  .c-copy{ position:relative; margin-left:-2px; width:28px; height:28px; flex:none; display:inline-flex; align-items:center; justify-content:center;
+    border:none; background:none; color:var(--ink-faint); border-radius:8px; cursor:pointer; font-family:inherit; opacity:.55; }
+  .c-copy:before{ content:""; position:absolute; left:50%; top:50%; width:44px; height:44px; transform:translate(-50%,-50%); }
+  .c-copy svg{ width:15px; height:15px; }
+  .c-copy.ok{ opacity:1; color:var(--accent); }
+  /* 강의실 ZOOM 바로가기 → 과목 카드 우측(D-day 배지 옆). 오늘 수업 줄의 채움 버튼과 겹치지 않게 외곽선형 */
+  .c-zm{ position:relative; flex:none; display:inline-flex; align-items:center; gap:5px; min-height:28px; padding:0 10px;
+    border:1.5px solid var(--zoom); border-radius:8px; background:none; color:var(--zoom)!important;
+    font-size:16px; font-weight:800; text-decoration:none; white-space:nowrap; }
+  /* 260820: 알약 높이(28px)는 그대로, 접촉면만 세로 44px로 확보 */
+  .c-zm:before{ content:""; position:absolute; left:0; right:0; top:50%; height:44px; transform:translateY(-50%); }
+  .c-zm svg{ width:13px; height:13px; }
+  .c-none{ font-size:17px; color:var(--ink-soft); padding:6px 0 2px; word-break:keep-all; }
+  /* 이후 일정 드롭다운 → 이번 달이 아닌 수업·미배정 과목·다른 달 공지를 접어 둔다 */
+  details.later{ margin-top:14px; }
+  details.later .crow{ opacity:1; }   /* 260823: 접힌 목록 안이라고 글자를 흐리게 하지 않는다 */
+  .lt-lbl{ margin:14px 0 2px; font-size:16px; font-weight:800; color:var(--ink-soft); letter-spacing:0; }
+  .lt-lbl:first-child{ margin-top:2px; }
+  .lt-noti{ margin-top:6px; }
+  .c-zm:focus-visible{ outline:3px solid var(--accent); outline-offset:2px; }
+  /* 종강 과목의 ZOOM 알약(260824 복원). 링크는 눌러야 하는 것이라 깊게 흐리지 않는다.
+     .9만 걸어 "지난 줄"에 속함을 알리되 라이트 4.18:1 · 다크 5.51:1로 본문 기준까지 넘긴다. */
+  .crow.over .c-zm{ opacity:.9; }
+
+  /* 로드맵(접이식) */
+  details.sec > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:6px; border:1.5px solid var(--border); border-radius:12px; padding:0 12px;
+    margin:0 0 8px; min-height:44px; font-size:17px; font-weight:800; color:var(--ink-soft); letter-spacing:0; }
+  details.sec > summary::-webkit-details-marker{ display:none; }
+  details.sec > summary:after{ content:"▾"; font-size:11px; }  /* audit-ok */
+  details.sec[open] > summary:after{ content:"▴"; }
+  .tl-months{ display:flex; margin-left:100px; position:relative; padding-top:15px; }
+  .tl-months span{ flex:1; font-size:13px; font-weight:700; color:var(--ink-soft); }  /* audit-ok */
+  .tl-today-lbl{ position:absolute; top:0; transform:translateX(-50%); background:var(--accent); color:var(--on-accent);
+    font-style:normal; font-size:12px; font-weight:800; padding:2px 8px; border-radius:8px; white-space:nowrap; z-index:3; }  /* audit-ok */
+  .tl-body{ position:relative; }
+  .tl-grid{ position:absolute; top:0; bottom:0; left:100px; right:0; }
+  .tl-grid i{ position:absolute; top:0; bottom:0; border-left:1px dashed var(--grid-line); }
+  .tl-row{ display:flex; align-items:center; margin-top:7px; position:relative; }
+  .tl-name{ flex:none; width:92px; margin-right:8px; font-size:14px; font-weight:700; color:var(--ink-soft);  /* audit-ok */
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-align:right; }
+  .tl-track{ position:relative; flex:1; height:20px; }
+  .tl-bar{ position:absolute; top:2px; bottom:2px; border-radius:5px; font-size:12px; font-weight:800;  /* audit-ok */
+    display:flex; align-items:center; padding:0 6px; white-space:nowrap; overflow:hidden; }
+  .tl-bar.pend{ background:transparent!important; border:1.5px dashed var(--line); color:var(--ink-soft); }
+  .tl-today{ position:absolute; top:-6px; bottom:-2px; border-left:2px solid var(--accent); z-index:2; }
+  .tl-note{ margin-top:12px; font-size:16px; color:var(--ink-soft); line-height:1.7; }
+
+  .foot{ margin-top:26px; padding:16px 0 0; border-top:1px solid var(--line); font-size:17px; color:var(--ink-soft); }
+  .foot .mentor{ font-weight:800; color:var(--ink); }
+  .foot .org{ color:var(--ink-soft); margin-top:4px; font-size:16px; }
+
+  /* 상단 탭바(260831 지시 "상단탭바로 바꾸라고 했잖아"). 라디오+라벨이라 전환에 자바스크립트가 없다.
+     라벨 줄만 sticky라 패널을 아무리 내려도 탭은 화면 맨 위에 남는다. 구 하단 고정 탭바는 폐지.
+     주간 시간표는 탭으로 가르지 않는다(260831 "주간시간표는 탭빼니까 불편하다"). 오늘 수업 바로 아래에 이어 둔다. */
+  .vtabs .vr{ position:absolute; opacity:0; width:1px; height:1px; }
+  .vtb{ display:flex; position:sticky; top:0; z-index:30; background:var(--surface);
+    border-bottom:1px solid var(--line); margin:0 -2px; }
+  /* 260902 테두리 규칙: 누를 수 있는 것만 진한 테두리(--border). 고른 탭은 남색으로 채운다. */
+  .vtb label{ flex:1; display:flex; align-items:center; justify-content:center; gap:7px;
+    min-height:46px; margin:5px 3px; padding:0 4px; font-size:17px; font-weight:500; color:var(--ink);
+    cursor:pointer; border:1.5px solid var(--border); border-radius:10px; white-space:nowrap; }
+  .vtb label svg{ width:20px; height:20px; flex:none; }
+  @media (max-width:430px){ .vtb label svg{ display:none; } }
+  .vpn{ display:none; padding-top:4px; }
+  #vwA:checked ~ .va, #vwB:checked ~ .vb, #vwC:checked ~ .vc, #vwD:checked ~ .vd{ display:block; }
+  #vwA:checked ~ .vtb label[for="vwA"], #vwB:checked ~ .vtb label[for="vwB"],
+  #vwC:checked ~ .vtb label[for="vwC"], #vwD:checked ~ .vtb label[for="vwD"]{
+    font-weight:800; color:var(--tab-on-tx); background:var(--tab-on-bg); border-color:var(--tab-on-bg); }
+  #vwA:focus-visible ~ .vtb label[for="vwA"], #vwB:focus-visible ~ .vtb label[for="vwB"],
+  #vwC:focus-visible ~ .vtb label[for="vwC"], #vwD:focus-visible ~ .vtb label[for="vwD"]{
+    outline:3px solid var(--focus); outline-offset:-3px; }
+  /* 쿠폰번호는 받아적어 옮기는 값이라 크게 띄우고 글자를 붙여 읽지 않게 자간을 준다. */
+  .cpn{ font-size:26px!important; font-weight:800; letter-spacing:.06em; color:var(--accent);
+    font-variant-numeric:tabular-nums; word-break:break-all; margin:0!important; }
+  .cpn-meta{ font-size:17px!important; color:var(--ink-soft); margin:6px 0 0!important; }
+  .mylec{ margin-top:18px!important; padding-top:14px; border-top:1px solid var(--line); }
+
+  /* 평일·주말 전환. 스와이프만 두면 그런 기능이 있는 줄 모르고 키보드로도 못 바꾸므로 단추를 함께 둔다. */
+  .wkseg{ display:inline-flex; margin-left:auto; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .wkseg button{ min-height:44px; padding:0 16px; border:none; background:var(--surface); color:var(--ink-soft);
+    font-family:inherit; font-size:17px; font-weight:700; cursor:pointer; }
+  .wkseg button + button{ border-left:1px solid var(--border); }
+  #laterSeg{ margin:12px 0 4px; }
+  @media (max-width:480px){ #laterSeg{ width:100%; } #laterSeg button{ flex:1; } }
+  .wkseg button.on{ background:var(--accent); color:var(--on-accent); }
+  .swipehint{ font-size:16px; color:var(--ink-soft); margin:8px 0 0; }
+
+  /* 내 일정(학교 시간표 등). 학원 수업과 헷갈리지 않게 색을 쓰지 않고 빗금만 두른다. */
+  .blk.mine{ background:repeating-linear-gradient(135deg,var(--off-bg) 0 7px,var(--surface) 7px 12px);
+    color:var(--ink); box-shadow:inset 0 0 0 1.5px var(--ink-faint); }
+  .lg-mine{ background:repeating-linear-gradient(135deg,var(--off-bg) 0 5px,var(--surface) 5px 9px);
+    box-shadow:inset 0 0 0 1px var(--ink-faint); }
+  /* 260902: 표에서 바로 지운다. 블록을 누르면 확인 후 삭제된다(설정 탭 목록의 지우기와 같은 동작). */
+  button.blk.mine{ font-family:inherit; text-align:left; border:0; cursor:pointer; }
+  .blk.mine .del{ position:absolute; top:3px; right:5px; font-size:16px; font-weight:800; opacity:.7; }
+
+  /* 설정 탭 */
+  .setrow{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:12px; }
+  .setrow select, .setrow input[type=text]{ min-height:46px; font-family:inherit; font-size:17px;
+    padding:0 10px; border:1px solid var(--border); border-radius:10px; background:var(--surface); color:var(--ink); }
+  .setrow input[type=text]{ flex:1; min-width:140px; }
+  .btn-a{ min-height:46px; padding:0 18px; border:none; border-radius:10px; background:var(--accent);
+    color:var(--on-accent); font-family:inherit; font-size:17px; font-weight:800; cursor:pointer; }
+  .mine-list{ list-style:none; margin:14px 0 0; padding:0; }
+  .mine-list li{ display:flex; align-items:center; gap:10px; padding:10px 0; border-top:1px solid var(--line);
+    font-size:18px; color:var(--ink); }
+  .mine-del{ margin-left:auto; min-height:44px; padding:0 14px; border:1px solid var(--border);
+    border-radius:10px; background:var(--surface); color:var(--ink); font-family:inherit; font-size:16px; cursor:pointer; }
+  .sw-row{ display:flex; align-items:center; gap:12px; min-height:48px; font-size:19px; color:var(--ink); }
+  .sw-row input{ width:24px; height:24px; accent-color:var(--accent); }
+  /* 260831: 구글 설문을 iframe으로 끼워 봤더니 인앱 브라우저에서 흰 칸만 남았다.
+     빈 상자를 보여 주느니 새 창으로 여는 단추가 낫다. */
+  .btn-lnk{ display:inline-flex; align-items:center; justify-content:center; min-height:54px; padding:0 22px;
+    border-radius:12px; background:var(--accent); color:var(--on-accent)!important; font-size:19px;
+    font-weight:800; text-decoration:none; word-break:keep-all; }
+
+  .info-card{ padding:16px 0; border-top:1px solid var(--line); }
+  .info-card.key{ border-top:none; padding-top:2px; }
+  .info-card h3{ font-size:21px; font-weight:800; margin:0 0 9px; letter-spacing:-.01em; }
+  .info-card.key h3{ color:var(--accent); }
+  .info-card ul{ margin:0; padding-left:17px; }
+  .info-card li{ font-size:19px; color:var(--ink); line-height:1.8; margin-top:10px; }
+  .info-card li:first-child{ margin-top:0; }
+  .info-card p{ font-size:19px; color:var(--ink); line-height:1.8; margin:12px 0 0; }
+  .info-card p:first-of-type{ margin-top:0; }
+  .info-card a{ color:var(--accent); text-decoration:none; word-break:break-all; font-weight:700; }
+  .info-card .lbl{ font-weight:800; color:var(--ink); }
+  .info-card.flash{ background:var(--accent-bg); border-radius:10px; }
+  .info-card table{ width:100%; border-collapse:collapse; margin-top:10px; font-size:17px; }
+  .info-card th,.info-card td{ border:1px solid var(--line); padding:10px 10px; text-align:left; color:var(--ink); line-height:1.6; }
+  .info-card th{ background:var(--chip-bg); font-weight:800; color:var(--ink); }
+  .info-card tbody th{ background:none; font-weight:700; }
+  .info-card caption{ text-align:left; padding-bottom:8px; font-size:16px; font-weight:700; color:var(--ink-soft); }
+
+  /* 첫 방문 안내 팝업(260828). 링크를 처음 연 사람에게 사용법·필수 안내를 한 번만 띄운다.
+     닫기 버튼은 제목 줄과 함께 sticky라 길게 스크롤해도 늘 우측 상단 같은 자리에 있다. */
+  .wm-ov{ position:fixed; inset:0; z-index:60; background:rgba(0,0,64,.55);
+    display:flex; align-items:center; justify-content:center; padding:16px;
+    opacity:0; visibility:hidden; transition:opacity .16s ease; }
+  .wm-ov.on{ opacity:1; visibility:visible; }
+  .wm{ width:min(480px,100%); max-height:88vh; overflow-y:auto; -webkit-overflow-scrolling:touch;
+    background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:18px;
+    box-shadow:0 24px 60px -20px rgba(0,0,64,.5);
+    padding:0 20px calc(20px + env(safe-area-inset-bottom));
+    transform:translateY(14px) scale(.985); transition:transform .176s cubic-bezier(.32,.72,0,1); }
+  .wm-ov.on .wm{ transform:none; }
+  .wmh{ position:sticky; top:0; z-index:2; background:var(--surface); display:flex; align-items:center;
+    gap:12px; padding:18px 0 10px; border-bottom:1px solid var(--line); }
+  .wmh h2{ font-size:23px; font-weight:800; margin:0; letter-spacing:-.01em; line-height:1.4; }
+  /* 닫는 버튼: 48px 정사각·굵은 X·테두리까지 넣어 배경과 확실히 갈라 보이게 한다. */
+  .wmx{ margin-left:auto; flex:0 0 auto; width:48px; height:48px; display:flex; align-items:center;
+    justify-content:center; background:var(--chip-bg); color:var(--ink); border:1.5px solid var(--border);
+    border-radius:14px; cursor:pointer; font-family:inherit; line-height:1; }
+  .wmx svg{ width:24px; height:24px; }
+  .wmx:active{ background:var(--off-bg); }
+  .wm .wsub{ font-size:17px; color:var(--ink-soft); line-height:1.7; margin:14px 0 0; }
+  .wsec{ padding:16px 0 0; margin-top:16px; border-top:1px solid var(--line); }
+  .wsec h3{ font-size:20px; font-weight:800; margin:0 0 9px; letter-spacing:-.01em; }
+  .wsec.key h3{ color:var(--accent); }
+  .wsec ol,.wsec ul{ margin:0; padding-left:20px; }
+  .wsec li{ font-size:18px; color:var(--ink); line-height:1.75; margin-top:10px; }
+  .wsec li:first-child{ margin-top:0; }
+  .wsec .lbl{ font-weight:800; color:var(--ink); }
+  .wm-ok{ width:100%; min-height:54px; margin-top:20px; border:none; border-radius:14px;
+    background:var(--accent); color:var(--on-accent); font-family:inherit; font-size:19px;
+    font-weight:800; letter-spacing:-.01em; cursor:pointer; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<div class="topbar" id="topbar" aria-hidden="true"><span class="tb-nm">정재린님 시간표</span><span class="tb-dt" id="tbDate"></span></div>
+<main class="wrap" id="main" tabindex="-1">
+  <a class="backbar" id="backBar" href="#" hidden><span class="ar">&larr;</span><span id="backTx"></span></a>
+  <div class="head">
+    <h1>정재린님 시간표</h1>
+    <div class="sub">모션영상 학과 · SBS아카데미 AIX학원 강남지점</div>
+  </div>
+
+  <div class="vtabs">
+  <input class="vr" type="radio" name="vw" id="vwA" checked>
+  <input class="vr" type="radio" name="vw" id="vwB">
+  <input class="vr" type="radio" name="vw" id="vwC">
+  <input class="vr" type="radio" name="vw" id="vwD">
+  <div class="vtb">
+    <label for="vwA"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/><circle cx="12" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></svg>시간표</label>
+    <label for="vwB"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>안내</label>
+    <label for="vwD"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2.5"/><path d="M8 21h8"/><path d="M10.5 8.5l4.5 2-4.5 2z"/></svg>인강</label>
+    <label for="vwC"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M18 6h2M4 12h2M10 12h10M4 18h10M18 18h2"/><circle cx="16" cy="6" r="2.2"/><circle cx="8" cy="12" r="2.2"/><circle cx="16" cy="18" r="2.2"/></svg>설정</label>
+  </div>
+
+  <div class="vpn va">
+  <section class="today" id="hero" aria-label="오늘 일정과 과목별 정리">
+    <div id="heroTop" role="status" aria-live="polite"></div>
+    <div id="courses"></div>
+  </section>
+  <div class="evnext" id="evNext" role="note" hidden></div>
+  <div class="mate-today" id="mateToday" role="status" aria-live="polite" hidden></div>
+  <div class="notice" id="noticeBox" role="note" hidden></div>
+  <section class="sec" id="secWeek" aria-labelledby="h-week">
+    <div class="sec-h"><h2 id="h-week">주간 시간표</h2><span class="week-label" id="weekLabel"></span>
+      <button class="mate-tg" id="mateTg" type="button" aria-pressed="false" aria-controls="grid" hidden><span class="sw" aria-hidden="true"></span><span id="mateTgLbl">함께 보기</span></button>
+      <div class="wkseg" id="mixSeg" role="group" aria-label="학원 일정·개인 일정 갈라 보기" hidden>
+        <button type="button" id="mixAll" aria-pressed="true">같이</button>
+        <button type="button" id="mixAca" aria-pressed="false">학원</button>
+        <button type="button" id="mixPer" aria-pressed="false">개인</button>
+      </div>
+      <div class="wkseg" id="wkSeg" role="group" aria-label="평일·주말 전환" hidden>
+        <button type="button" id="wkWd" aria-pressed="true">평일</button>
+        <button type="button" id="wkWe" aria-pressed="false">주말</button>
+      </div>
+    </div>
+    <div class="tabs" id="mtabs" role="group" aria-label="월 선택" hidden></div>
+    <div class="tabs" id="tabs" role="group" aria-label="주 선택"></div>
+    <p class="sr" id="gridHelp">가로가 요일, 세로가 시각인 주간 시간표입니다. 같은 내용을 글로 읽으려면 위 과목별 정리를 보세요.</p>
+    <div class="ttwrap"><div class="tt" id="grid" role="group" aria-labelledby="h-week" aria-describedby="gridHelp"></div></div>
+    <p class="ttscroll">표를 옆으로 밀면 나머지 요일이 보입니다.</p>
+    <p class="swipehint" id="swipeHint" hidden>표를 옆으로 밀거나 위 단추로 평일·주말을 바꿉니다.</p>
+    <div class="legend" id="legend"></div>
+    <a class="mate-open" id="mateOpen" href="#" hidden></a>
+    <div class="mate-note" id="mateNote" hidden></div>
+  </section>
+  <details class="sec sub"><summary>전체 수강 로드맵</summary><div id="timeline"></div></details>
+  </div>
+
+  <div class="vpn vb">
+  <details class="sec sub later" id="laterSec" hidden><summary id="laterSum">이후 일정 보기</summary>
+    <div class="wkseg" id="laterSeg" role="group" aria-label="이후 일정 학원·개인 갈라 보기" hidden>
+      <button type="button" id="ltAll" aria-pressed="true">같이</button>
+      <button type="button" id="ltAca" aria-pressed="false">학원</button>
+      <button type="button" id="ltPer" aria-pressed="false">개인</button>
+    </div>
+    <div id="laterBody"></div></details>
+  <div class="info-body">
+  <div class="info-card key">
+    <h3>이 세 가지만 기억해 주세요</h3>
+    <ul>
+      <li><span class="lbl">스마트러닝 앱을 설치하세요.</span> 휴강·강의실 변경이 앱으로 바로 옵니다.</li>
+      <li><span class="lbl">수업 전 강의실을 확인하세요.</span> 강의실은 자주 바뀝니다.</li>
+      <li><span class="lbl">개인 사정 결석은 보강이 어려운 점 양해 부탁드립니다.</span> 강사 사정으로 휴강한 날은 보강 일정을 문자로 안내드립니다.</li>
+    </ul>
+  </div>
+  <div class="info-card">
+    <h3>스마트러닝 앱 설치</h3>
+    <p><span class="lbl">1</span> 앱스토어·플레이스토어에서 "코리아교육그룹 스마트러닝" 설치</p>
+    <p><span class="lbl">2</span> 계열사 "SBS아카데미컴퓨터아트학원" → 지점 "강남지점" → 본인 휴대폰번호 입력</p>
+    <p><span class="lbl">3</span> 첫 비밀번호는 휴대폰번호 뒤 4자리</p>
+    <p><span class="lbl">4</span> 하단 "수강정보"에서 개강일·강의실·강사·출결 확인</p>
+  </div>
+  <div class="info-card" id="cardZoom">
+    <h3>비대면 수업 ZOOM</h3>
+    <p><span class="lbl">6층 O강의장</span><br>회의 ID 209 731 3957 · 비밀번호 sbsartO<br><a href="https://zoom.us/j/2097313957?pwd=OS9XazRHZHJDc05ieitFRXdybzE0QT09" target="_blank" rel="noopener">ZOOM 바로 입장</a></p>
+    <p><span class="lbl">5층 D강의장</span><br>회의 ID 745 703 6449 · 비밀번호 sbsartD<br><a href="https://zoom.us/j/7457036449?pwd=Y0VEaFdsMWZGWkJ5NVZDc1llT2xHQT09" target="_blank" rel="noopener">ZOOM 바로 입장</a></p>
+    <p>수업 5분 전에 입장해 주세요. 비밀번호는 대소문자를 구분합니다.</p>
+    <p>강의실이 바뀌면 ZOOM 주소도 바뀝니다. 변경 안내 문자를 확인해 주세요.</p>
+    <p><span class="lbl">소리가 안 들릴 때</span> PC는 설정 → 회의 → "오디오 자동 연결"을 "인터넷 사용"으로 바꾸고, 휴대폰은 입장할 때 "장치 오디오를 통해 통화"를 누르세요.</p>
+  </div>
+  <div class="info-card" id="cardBook">
+    <h3>교재 구매</h3>
+    <p><span class="lbl">포토샵 (저녁)</span><br>멘토시리즈 포토샵<br><a href="https://kedustore.com/books/detail.asp?pdt_seq=1340" target="_blank" rel="noopener">교재 구매 바로가기</a></p>
+    <p><span class="lbl">일러스트 (저녁)</span><br>멘토시리즈 일러스트<br><a href="https://kedustore.com/books/detail.asp?pdt_seq=1339" target="_blank" rel="noopener">교재 구매 바로가기</a></p>
+    <p>온라인 주문만 가능합니다. 현장 수령은 주문 시 신청하세요.</p>
+    <p><span class="lbl">로그인</span> <a href="https://kedustore.com" target="_blank" rel="noopener">kedustore.com</a> → 계열사 "SBS아카데미컴퓨터아트학원" → 지점 "강남지점" → 휴대폰번호</p>
+    <p><span class="lbl">문의</span> 교재몰 고객센터 02-6951-4217</p>
+  </div>
+  <div class="info-card">
+    <h3>예제파일 받기</h3>
+    <p><a href="http://www.webhard.co.kr" target="_blank" rel="noopener">webhard.co.kr</a> 접속 → 아이디 kegstore01 (또는 kegstore02) / 비밀번호 0000 → "내리기전용" 폴더에서 본인 과목 폴더를 받으세요.</p>
+  </div>
+  
+  <div class="info-card">
+    <h3>문의</h3>
+    <p>담당 멘토 오영선에게 편하게 연락 주세요. 휴강·비대면 전환 안내는 문자로 발송되니 스팸함도 확인해 주세요.</p>
+  </div>
+  <div class="info-card" id="cardRefund">
+    <h3>환불 규정</h3>
+    <p>수업 도중 환불하면 원수강료 기준으로 아래만큼 공제됩니다.</p>
+    <table>
+      <caption>수업 진행률에 따른 환불액</caption>
+      <thead><tr><th scope="col">진행률</th><th scope="col">환불액</th></tr></thead>
+      <tbody>
+      <tr><th scope="row">수업일수의 30% 미만</th><td>등록금 - 원수강료 × 1/3</td></tr>
+      <tr><th scope="row">30% ~ 50% 미만</th><td>등록금 - 원수강료 × 1/2</td></tr>
+      <tr><th scope="row">50% 이상</th><td>환불 없음(전액 공제)</td></tr>
+      </tbody>
+    </table>
+    <p>배정 후 개강 2일 전부터는 배정 취소가 안 되어 원수강료의 1/3이 공제됩니다.</p>
+    <p>국비·장학 지원을 받으셨다면 중도포기 시 지원 내역이 취소되고 교육청 신고 원수강료 기준으로 공제됩니다. 교육청에 "도중포기" 기록이 남아 다음 등록 때 지원 대상에서 빠질 수 있습니다.</p>
+    <p>장기홀딩과 과목 변경은 양도로 처리할 수 있습니다(타 지점 이동 불가).</p>
+  </div>
+</div>
+</div>
+
+  <div class="vpn vd">
+<section class="info-body" aria-label="인강">
+  <div class="info-card key">
+    <h3>내 쿠폰번호</h3>
+    <p class="cpn">KE0166976394</p>
+    <p class="cpn-meta">무료 30일 수강권(컴퓨터) · 발급 2026-07-02</p>
+    <p>번호는 한 번만 등록하면 됩니다. 등록한 계정에서만 강의가 열립니다.</p>
+  </div>
+  <div class="info-card">
+    <h3>쿠폰 등록 방법</h3>
+    <p><span class="lbl">1</span> <a href="https://www.ddazua.com/" target="_blank" rel="noopener">ddazua.com</a> 접속 후 로그인(카카오 로그인 가능)</p>
+    <p><span class="lbl">2</span> 우측 상단 이름 → 쿠폰관리</p>
+    <p><span class="lbl">3</span> 받은 쿠폰코드 등록 칸에 위 번호를 입력하고 "사용하기"</p>
+  </div>
+  <div class="info-card">
+    <h3>인강 보는 방법</h3>
+    <p><span class="lbl">1</span> 우측 상단 이름 → 내강의실</p>
+    <p><span class="lbl">2</span> 수강할 강의를 고르고 "수강하기"</p>
+    <p><span class="lbl">3</span> 휴대폰은 같은 주소로 로그인하면 그대로 이어서 봅니다. 별도 앱은 없습니다.</p>
+    <p class="mylec"><span class="lbl">내 과목과 연결되는 강의</span></p>
+    <p><span class="lbl">포토샵 (저녁)</span><br>NEW 멘토시리즈 포토샵<br><a href="https://www.ddazua.com/local/course/detail.php?id=2410" target="_blank" rel="noopener">강의 바로가기</a></p>
+    <p><span class="lbl">일러스트 (저녁)</span><br>NEW 멘토시리즈 일러스트레이터<br><a href="https://www.ddazua.com/local/course/detail.php?id=2381" target="_blank" rel="noopener">강의 바로가기</a></p>
+  </div>
+  <div class="info-card">
+    <h3>안내사항</h3>
+    <ul>
+      <li><span class="lbl">기간은 쿠폰을 등록한 날부터 셉니다.</span> 결제일이 아니라 등록일 기준이라 바로 쓰지 않아도 손해가 없습니다.</li>
+      <li><span class="lbl">등록 후에는 기간이 멈추지 않습니다.</span> 수업 진도에 맞춰 볼 시점을 정한 뒤 등록하시길 권합니다.</li>
+      <li><span class="lbl">학원 수업을 대신하지 않습니다.</span> 예습·복습과 결석분 보완용입니다.</li>
+      <li><span class="lbl">번호를 잃어버리면 이 화면에서 다시 확인하세요.</span> 재발급은 어렵습니다.</li>
+      <li>등록이 안 되거나 강의가 열리지 않으면 담당 멘토 오영선에게 연락 주세요.</li>
+    </ul>
+  </div>
+</section>
+  </div>
+
+  <div class="vpn vc">
+  <section class="info-body" aria-label="설정">
+    <div class="info-card key">
+      <h3>내 일정 넣기</h3>
+      <p>학교 시간표나 아르바이트처럼 본인만 아는 일정을 넣어 두면 주간 시간표에 함께 보입니다. 이 기기에만 저장되고 학원으로는 전송되지 않습니다.</p>
+      <div class="sw-row"><input type="checkbox" id="mineSw"><label for="mineSw">주간 시간표에 내 일정 보이기</label></div>
+      <div class="setrow">
+        <select id="mineD" aria-label="요일"></select>
+        <select id="mineS" aria-label="시작 시각"></select>
+        <select id="mineE" aria-label="끝 시각"></select>
+      </div>
+      <div class="setrow">
+        <input type="text" id="mineNm" maxlength="14" placeholder="일정 이름 (예: 학교 수업)" aria-label="일정 이름">
+        <button class="btn-a" type="button" id="mineAdd">추가</button>
+      </div>
+      <p id="mineMsg" role="status" aria-live="polite"></p>
+      <ul class="mine-list" id="mineList"></ul>
+    </div>
+    <div class="info-card">
+      <h3>의견 보내기</h3>
+      <p>이 시간표 링크를 쓰면서 불편했던 점이나 더 있었으면 하는 것을 적어 주세요. 이름을 안 적으셔도 됩니다.</p>
+      <p><a class="btn-lnk" href="https://docs.google.com/forms/d/e/1FAIpQLSc-iHAIZeLxOGGzwNAtETbHMmZBcsdZtN--thVYziv4pHygJA/viewform" target="_blank" rel="noopener">의견 적는 칸 열기</a></p>
+      <p>구글 설문으로 열립니다. 카카오톡에서 바로 여신 분은 우측 상단 메뉴에서 "다른 브라우저로 열기"를 눌러 주세요.</p>
+    </div>
+  </section>
+  </div>
+  </div>
+
+  <footer class="foot">
+    <div class="mentor">담당 멘토 오영선</div>
+    <div>시간표에 궁금한 점이 있으면 연락 주세요.</div>
+    <div class="org">SBS아카데미 AIX학원 강남지점</div>
+  </footer>
+</main>
+<div class="wm-ov" id="wmOv" hidden>
+  <div class="wm" id="wmBox" role="dialog" aria-modal="true" aria-labelledby="wmTitle">
+    <div class="wmh">
+      <h2 id="wmTitle">시간표 링크 사용법</h2>
+      <button class="wmx" id="wmClose" type="button" aria-label="안내 닫기"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <p class="wsub">처음 여신 분을 위한 안내입니다. 닫으면 이 기기에서는 다시 나타나지 않습니다.</p>
+    <div class="wsec key">
+      <h3>먼저 이 세 가지</h3>
+      <ul>
+        <li><span class="lbl">스마트러닝 앱을 설치하세요.</span> 휴강·강의실 변경이 앱으로 바로 옵니다.</li>
+        <li><span class="lbl">수업 전 강의실을 확인하세요.</span> 강의실은 자주 바뀝니다.</li>
+        <li><span class="lbl">개인 사정 결석은 보강이 어려운 점 양해 부탁드립니다.</span> 강사 사정으로 휴강한 날은 보강 일정을 문자로 안내드립니다.</li>
+      </ul>
+    </div>
+    <div class="wsec">
+      <h3>이 페이지 보는 법</h3>
+      <ol>
+        <li><span class="lbl">시간표</span> 탭 맨 위에서 오늘 수업과 과목별 회차·진행률·강의실을 봅니다.</li>
+        <li>그 아래 <span class="lbl">주간 시간표</span>는 월·주 탭을 눌러 다른 주도 볼 수 있습니다. 주말 수업이 있으면 표를 옆으로 밀어 평일·주말을 바꿉니다.</li>
+        <li><span class="lbl">안내</span> 탭 맨 위 <span class="lbl">이후 일정 보기</span>와 시간표 탭 맨 아래 <span class="lbl">전체 수강 로드맵</span>에 다음 달 이후 수업이 들어 있습니다.</li>
+        <li><span class="lbl">설정</span> 탭에서 학교 시간표 같은 개인 일정을 넣고 켜고 끌 수 있습니다. 의견도 그곳에서 보내 주세요.</li>
+        <li>맨 위 <span class="lbl">안내</span> 탭에 안내사항·ZOOM·교재·환불규정이 모여 있습니다.</li>
+      </ol>
+    </div>
+    <div class="wsec">
+      <h3>알아두실 점</h3>
+      <ul>
+        <li>이 주소는 본인 시간표 전용입니다. 즐겨찾기에 추가해 두세요.</li>
+        <li>수업이 바뀌면 같은 주소에서 내용이 갱신됩니다. 새 링크를 따로 받지 않으셔도 됩니다.</li>
+        <li>비대면 수업 ZOOM 주소는 <span class="lbl">안내</span> 탭에 있습니다.</li>
+        <li>궁금한 점은 담당 멘토 오영선에게 편하게 연락 주세요.</li>
+      </ul>
+    </div>
+    <button class="wm-ok" id="wmOk" type="button">확인했습니다</button>
+  </div>
+</div>
+<script>
+const D={"courses": {"c0": {"nm": "포토샵 (저녁)", "cls": "k0", "dept": "visual", "tm": "19:00~22:00", "s": 19.0, "e": 22.0, "room": "6층 O", "tag": "8/7 종강", "meta": "7/14 ~ 8/7 · 화·목·금 격일 순환 · 19:00~22:00 · 6층 O", "kind": "시각편집 계열 · 저녁 B패턴 · 3H×10일", "span": ["7/14", "8/7"], "aug": ["8/4(화)", "8/6(목)", "8/7(금)"], "sep": [], "sepTail": " (종강)"}, "c1": {"nm": "일러스트 (저녁)", "cls": "k1", "dept": "visual", "tm": "19:00~22:00", "s": 19.0, "e": 22.0, "room": "5층 D", "tag": "8/13 개강", "meta": "8/13 ~ 9/8 · 화·목·금 격일 순환 · 19:00~22:00 · 5층 D", "kind": "시각편집 계열 · 저녁 B패턴 · 3H×10일", "span": ["8/13", "9/8"], "aug": ["8/13(목)", "8/18(화)", "8/20(목)", "8/21(금)", "8/25(화)", "8/27(목)"], "sep": ["9/1(화)", "9/3(목)", "9/4(금)", "9/8(화)"], "sepTail": " (종강)"}}, "sessions": {"c0": ["7/14", "7/16", "7/21", "7/23", "7/24", "7/28", "7/30", "8/4", "8/6", "8/7"], "c1": ["8/13", "8/18", "8/20", "8/21", "8/25", "8/27", "9/1", "9/3", "9/4", "9/8"]}, "flags": {"c0|8/7": "마지막 수업", "c1|8/13": "개강", "c1|9/8": "마지막 수업"}, "off": {"9/24": "추석연휴 휴강", "9/25": "추석연휴 휴강", "10/5": "대체공휴일 휴강", "10/9": "한글날 휴강", "12/25": "성탄절 휴강"}, "weeks": [{"label": "8/3 주", "days": [["월", "8/3", false], ["화", "8/4", false], ["수", "8/5", false], ["목", "8/6", false], ["금", "8/7", false]]}, {"label": "8/10 주", "days": [["월", "8/10", false], ["화", "8/11", false], ["수", "8/12", false], ["목", "8/13", false], ["금", "8/14", false]]}, {"label": "8/17 주", "days": [["월", "8/17", false], ["화", "8/18", false], ["수", "8/19", false], ["목", "8/20", false], ["금", "8/21", false]]}, {"label": "8/24 주", "days": [["월", "8/24", false], ["화", "8/25", false], ["수", "8/26", false], ["목", "8/27", false], ["금", "8/28", false]]}, {"label": "8/31 주", "days": [["월", "8/31", false], ["화", "9/1", true], ["수", "9/2", true], ["목", "9/3", true], ["금", "9/4", true]]}, {"label": "9/7 주", "days": [["월", "9/7", true], ["화", "9/8", true], ["수", "9/9", true], ["목", "9/10", true], ["금", "9/11", true]]}], "months": [{"label": "8월", "m": 8, "weeks": [0, 1, 2, 3, 4]}, {"label": "9월", "m": 9, "weeks": [5]}], "notices": ["<b>9월 안내</b> · 일부 과목은 9월까지 이어집니다. 위 과목 목록에서 날짜를 확인해 주세요."], "pending": [], "legend": [{"cls": "sw-visual", "label": "시각편집 계열"}], "t0": 17, "t1": 22, "hasWe": false, "tl_months": [7, 8, 9]};
+/* 동반 수강생(같이 등록한 가족·동반등록자). 관계가 없으면 null */
+const MATE=null;
+/* 면담 등 수업 외 개별 일정 → 안내문에서 날짜·시간을 뽑아 표에도 표시(260804) */
+const EVENTS=[];
+const ME="정재린";
+const ZOOMT={"5A": ["819 969 6896", "sbsartA", "https://zoom.us/j/8199696896?pwd=ZWVOVCs3UVNUb0hVOG5GcGUycFI4UT09"], "5B": ["936 352 7807", "sbsartB", "https://zoom.us/j/9363527807?pwd=NitILzdhWlhEbUxIN0UzZEZ3YTV1UT09"], "5C": ["747 428 3027", "sbsartC", "https://zoom.us/j/7474283027?pwd=ek00Y21NUWVqRDhGcGJZNnl3S1ptdz09"], "5D": ["745 703 6449", "sbsartD", "https://zoom.us/j/7457036449?pwd=Y0VEaFdsMWZGWkJ5NVZDc1llT2xHQT09"], "5E": ["969 001 9519", "sbsartE", "https://zoom.us/j/9690019519?pwd=WElIOG5XaWRpd1lwcGRpQm5uMEtJUT09"], "5F": ["324 991 4983", "sbsartF", "https://zoom.us/j/3249914983?pwd=UTlRTktEdEJ5Z3JwMDNKb1h5N3ZpZz09"], "5G": ["675 908 1883", "sbsartG", "https://zoom.us/j/6759081883?pwd=eHVadmkwVUtIWlF1Y3JkU2xsYVJLdz09"], "5H": ["268 599 3046", "sbsartH", "https://zoom.us/j/2685993046?pwd=RVk2MXlxTmd4TVQwck5KVEpSWTVmZz09"], "5I": ["782 398 8737", "sbsartI", "https://zoom.us/j/7823988737?pwd=WVNWNkM0amh4YlBBVFowV09qSEVkdz09"], "5J": ["631 986 9083", "sbsartJ", "https://zoom.us/j/6319869083?pwd=VWU5VU9POFg1cGptSlFlakZ5MlRadz09"], "5K": ["531 263 5831", "sbsartK", "https://zoom.us/j/5312635831?pwd=THFlZ1VEQW0rMnhvMURUU2lyVnRuQT09"], "5L": ["635 271 5160", "sbsartL", "https://zoom.us/j/6352715160?pwd=Y1B2bmtNcVp5dWcxL1dmZTJlNExtUT09"], "6M": ["627 338 3732", "sbsartM", "https://zoom.us/j/6273383732?pwd=enhieitFd0hEblVsRHVkTlp1eG5zQT09"], "6N": ["209 930 4917", "sbsartN", "https://zoom.us/j/2099304917?pwd=L1dLOCtWVEtNbmczaWtDb0IxWThDQT09"], "6O": ["209 731 3957", "sbsartO", "https://zoom.us/j/2097313957?pwd=OS9XazRHZHJDc05ieitFRXdybzE0QT09"], "6P": ["447 657 9214", "sbsartP", "https://zoom.us/j/4476579214?pwd=d3YwM21melVsMllmRlpXMU5ucTFtZz09"], "6Q": ["318 791 2164", "sbsartQ", "https://zoom.us/j/3187912164?pwd=enlLQUJKUHpJaDU2QlBFM2dMNWdKQT09"], "6R": ["533 753 8619", "sbsartR", "https://zoom.us/j/5337538619?pwd=YUlHdUU3bmY4TVYvZDJTV3JKcUkvZz09"], "6S": ["863 167 1071", "sbsartS", "https://zoom.us/j/8631671071?pwd=aHRWZWR1bnRoME11UTFQZksvYUlLdz09"], "6T": ["724 306 6573", "sbsartT", "https://zoom.us/j/7243066573?pwd=SG4xQzRIbGxNeVo0T05WMXdUMnlsQT09"], "12U": ["566 179 5154", "sbsartU", "https://zoom.us/j/5661795154?pwd=VnoyR1ZCY1N3OWJVVWtkWnZXQnh4dz09"], "12V": ["453 904 8778", "sbsartV", "https://zoom.us/j/4539048778?pwd=ZmFnd0NVV2hGVEFCbmhMQkp1ajhNUT09"]};
+const BOOKS=[{"kw": ["포토웍스"], "t": "멘토시리즈 포토웍스", "seq": "1217"}, {"kw": ["디일러", "디테일일러", "디테일 일러"], "t": "멘토시리즈 디테일 일러스트", "seq": "1280"}, {"kw": ["인디자인"], "t": "멘토시리즈 인디자인", "seq": "1250"}, {"kw": ["포토샵"], "t": "멘토시리즈 포토샵", "seq": "1340"}, {"kw": ["일러스트", "일러"], "t": "멘토시리즈 일러스트", "seq": "1339"}, {"kw": ["스케치업"], "t": "멘토시리즈 스케치업", "seq": "1168"}, {"kw": ["캐드"], "t": "멘토시리즈 오토캐드", "seq": "113"}, {"kw": ["맥스", "3ds", "3d스튜디오"], "t": "멘토시리즈 3ds Max", "seq": "1189"}, {"kw": ["에펙", "애프터"], "t": "멘토시리즈 애프터 이펙트", "seq": "104"}, {"kw": ["모스", "mos"], "t": "멘토시리즈 MOS 세트", "seq": "1347"}, {"kw": ["컴활", "컴퓨터활용"], "t": "멘토시리즈 컴퓨터활용능력1급 실기", "seq": "1258"}, {"kw": ["발상"], "t": "Basic Artwork 발상과 표현", "seq": "1133"}, {"kw": ["색채"], "t": "Basic Artwork 색채학", "seq": "1138"}];
+var WK7=["일","월","화","수","목","금","토"], WKD=["월","화","수","목","금","토","일"];
+/* ── 내 일정(학교 시간표 등)·평일 주말 전환 상태 (260831) ─────────────
+   내 일정은 이 기기 localStorage에만 있다. 링크는 정적 페이지라 학원으로 올라갈 곳이 없다. */
+var MINE_KEY="ttMine_v1", MINE_SW="ttMineOn_v1";
+var MINE=[], MINE_ON=false;
+try{ MINE=JSON.parse(localStorage.getItem(MINE_KEY)||"[]")||[]; }catch(e){ MINE=[]; }
+try{ MINE_ON=localStorage.getItem(MINE_SW)==="1"; }catch(e){}
+function mineSave(){ try{ localStorage.setItem(MINE_KEY,JSON.stringify(MINE)); localStorage.setItem(MINE_SW,MINE_ON?"1":"0"); }catch(e){} }
+function mineOnDay(wd){ return (MINE_ON && MIXMODE!=="aca") ? MINE.filter(function(m){ return m.d===wd; }) : []; }
+var mineDraw=function(){};   /* 설정 탭 목록 다시 그리기. 아래 설정 탭 블록이 실제 함수를 넣는다 */
+
+/* ── 학원 일정·개인 일정 갈라 보기 (260831 오영선님 지시) ─────────────
+   동반 수강생 함께 보기와 같은 자리, 같은 방식이다. 개인 = 학교 과목(dept school) + 설정 탭의 내 일정,
+   학원 = 나머지 수업. 주간 시간표는 mixMode, 안내 탭의 이후 일정은 laterMode로 따로 기억한다. */
+var MIXMODE="all", LTMODE="all";
+try{ MIXMODE=localStorage.getItem("mixMode")||"all"; LTMODE=localStorage.getItem("laterMode")||"all"; }catch(e){}
+function isPer(k){ return (D.courses[k]||{}).dept==="school"; }
+function keepK(k,mode){ return mode==="all" || ((mode==="per")===isPer(k)); }
+function hasPer(){ return Object.keys(D.courses).some(isPer) || (MINE_ON && MINE.length>0); }
+function hasAca(){ return Object.keys(D.courses).some(function(k){ return !isPer(k); }); }
+var WE_DAYS=["토","일"];
+function isWe(wd){ return WE_DAYS.indexOf(wd)>=0; }
+/* "wd"=평일 5칸, "we"=주말 2칸. 주말 수업이 없는 학생은 표가 애초에 5칸이라 이 값을 안 쓴다.
+   WKPIN은 사람이 직접 고른 표시다. 고른 뒤에는 그 주에 수업이 없어도 자동 판단이 덮지 않는다. */
+var WKMODE="wd", WKPIN=false;
+function splitDays(days){
+  var wd=[], we=[];
+  days.forEach(function(d){ (isWe(d[0])?we:wd).push(d); });
+  return {wd:wd, we:we};
+}
+var TODAY_MD=(function(){var n=new Date();return (n.getMonth()+1)+"/"+n.getDate();})();
+function mdDate(md){ var p=md.split("/").map(Number); return new Date(2026,p[0]-1,p[1]); }
+function midnight(dt){ return new Date(dt.getFullYear(),dt.getMonth(),dt.getDate()).getTime(); }
+function todayMid(){ return midnight(new Date()); }
+function pct(md,tl0,tl1){ return Math.max(0,Math.min(100,(mdDate(md).getTime()-tl0)/(tl1-tl0)*100)); }
+function dstr(dt){ return (dt.getMonth()+1)+"/"+dt.getDate()+"("+WK7[dt.getDay()]+")"; }
+function shortNm(nm){ return nm.replace(/\s*\([^()]*\)/g,""); }   /* 그리드 블록은 괄호 설명 생략 */
+/* 과목명에는 AI 배지 같은 태그가 섞여 있다. 속성값(aria-label 등)에 넣을 땐 반드시 이걸로 벗긴다. */
+function att(s){ return String(s).replace(/<[^>]+>/g,"").replace(/\s+/g," ").replace(/"/g,"&quot;").trim(); }
+function zoomFor(room){ var m=(room||"").match(/0?(\d+)\s*층\s*([A-Za-z])/); if(!m) return null; return ZOOMT[m[1]+m[2].toUpperCase()]||null; }
+function bookFor(nm){ var low=(nm||"").toLowerCase().replace(/ /g,""); for(var i=0;i<BOOKS.length;i++){ var b=BOOKS[i]; for(var j=0;j<b.kw.length;j++){ if(low.indexOf(b.kw[j].toLowerCase().replace(/ /g,""))>=0) return b; } } return null; }
+/* 요일 코드: 실제 수업일로 판정. 저녁 3일반만 순환 표기(월수금월수·화목화목금) */
+function dayCode(k){
+  var seen={}, uniq=[];
+  (D.sessions[k]||[]).forEach(function(md){ var d=(mdDate(md).getDay()+6)%7; if(!seen[d]){ seen[d]=1; uniq.push(d); } });
+  uniq.sort(function(a,b){return a-b;});
+  var s=uniq.map(function(d){return WKD[d];}).join(""), eve=D.courses[k].s>=18;
+  if(eve && s==="월수금") return "월수금월수";
+  if(eve && s==="화목금") return "화목화목금";
+  return s;
+}
+function cleanKind(s){ return (s||"").replace(/\s*격일\s*순환/g,"").replace(/\s*격일/g,"").replace(/·\s*·/g,"·").replace(/·\s*$/,"").trim(); }
+
+/* ── 상단 고정 바 · 동반자 페이지에서 돌아가기 ───────────────────── */
+document.getElementById("tbDate").textContent=dstr(new Date());
+(function(){
+  var tb=document.getElementById("topbar");
+  addEventListener("scroll",function(){ tb.classList.toggle("on", (scrollY||pageYOffset)>150); },{passive:true});
+})();
+(function(){
+  var from=null;
+  try{ from=JSON.parse(sessionStorage.getItem("ttFrom")||"null"); }catch(e){}
+  /* 동반 수강생 관계인 상대에서 넘어온 경우에만 표시.
+     같은 탭에서 다른 학생 페이지를 열었을 때 남은 값이 따라붙지 않게 한다. */
+  if(!from || !MATE || from.name!==MATE.name || from.to!==ME) return;
+  var b=document.getElementById("backBar");
+  document.getElementById("backTx").textContent=from.name+"님 시간표로 돌아가기";
+  b.href=from.url; b.hidden=false;
+  b.onclick=function(){ try{ sessionStorage.removeItem("ttFrom"); }catch(e){} };
+})();
+
+/* ── 오늘 수업(메인) ─────────────────────────────────────────────── */
+var byDate={};
+Object.keys(D.sessions).forEach(function(k){ (D.sessions[k]||[]).forEach(function(md){ (byDate[md]=byDate[md]||[]).push(k); }); });
+function hhmm(h){ var H=Math.floor(h), M=Math.round((h-H)*60); return (H<10?"0":"")+H+":"+(M<10?"0":"")+M; }
+var ZOOM_SVG='<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="12" rx="2.5"/><path d="M22 8.5l-7 4 7 4z"/></svg>';
+/* 260810 통합: 오늘 수업 상세는 과목 블록 안에서 보여준다(오늘 카드와 과목별 정리를 한 섹션으로 합침).
+   진행 중이면 "지금", ZOOM은 아직 안 끝난 수업에만 크게 보인다. */
+function todayLine(k){
+  var c=D.courses[k], z=zoomFor(c.room), st="", done=false;
+  var n=new Date(), h=n.getHours()+n.getMinutes()/60;
+  if(h>=c.e){ st='<span class="tst">종료</span>'; done=true; }
+  else if(h>=c.s) st='<span class="tst now">지금 진행 중</span>';
+  /* 강의실은 과목명 줄로 올라갔으므로 여기서는 시각·상태·ZOOM만 남긴다(260812) */
+  /* 260824: 끝난 줄은 흐리게 보인다. 스크린리더는 흐림을 읽지 못하므로 줄 이름에 상태를 넣는다. */
+  return '<div class="c-now'+(done?" done":"")+'"'+
+    (done?' role="group" aria-label="'+att(c.nm)+' '+c.tm+' 종료"':'')+'><span class="tm">'+c.tm+'</span>'+st+
+    ((z&&!done)?'<a class="zbtn" href="'+z[2]+'" target="_blank" rel="noopener" aria-label="'+att(c.nm)+' 비대면 ZOOM 입장">'+ZOOM_SVG+'ZOOM 입장</a>':'')+'</div>';
+}
+function evRow(ev){
+  return '<div class="trow ev"><span class="tdot"></span><div class="tmain">'+
+    '<div class="ttop"><span class="tm">'+(ev.tm||"시간 안내 예정")+'</span></div>'+
+    '<div class="tnm">'+ev.nm+(ev.room?' <span class="rmx">· '+ev.room+'</span>':'')+'</div></div></div>';
+}
+function renderHero(){
+  var t0=todayMid();
+  var dayList=Object.keys(byDate).map(function(md){return {md:md,d:mdDate(md)};}).sort(function(a,b){return a.d-b.d;});
+  var evByDate={}; EVENTS.forEach(function(e){ (evByDate[e.md]=evByDate[e.md]||[]).push(e); });
+  var todayKeys=(byDate[TODAY_MD]||[]).filter(function(k){return keepK(k,MIXMODE);})
+    .slice().sort(function(a,b){return D.courses[a].s-D.courses[b].s;});
+  var todayEv=evByDate[TODAY_MD]||[];
+  var next=null;
+  for(var i=0;i<dayList.length;i++){ if(midnight(dayList[i].d)>t0){ next=dayList[i]; break; } }
+  var el=document.getElementById("hero");
+  /* 260812 오영선님 지시: 날짜 줄과 오늘 현황 줄을 한 줄로 합친다.
+     "8/12(수) · 오늘 수업 1개" 또는 "8/12(수) · 오늘 수업 없음" 한 줄로 끝낸다.
+     다음 수업 안내는 아래 과목 카드의 D-day 배지가 이미 하고 있어 여기서 뺀다. */
+  el.className = todayKeys.length ? "today yes" : "today";
+  var st = todayKeys.length ? "오늘 수업 "+todayKeys.length+"개" : "오늘 수업 없음";
+  var h='<div class="t-h"><span class="t-ttl">'+dstr(new Date())+'</span>'+
+    '<span class="t-st">'+st+'</span></div>';
+  if(todayEv.length) h+='<div class="tlist">'+todayEv.map(evRow).join("")+'</div>';
+  document.getElementById("heroTop").innerHTML=h;
+  /* 예정된 면담은 "오늘 수업" 카드 밖에 따로 → 오늘 일정으로 오해하지 않게 */
+  var nextEv=EVENTS.filter(function(e){ return midnight(mdDate(e.md))>t0; })
+    .sort(function(a,b){ return mdDate(a.md)-mdDate(b.md); })[0];
+  if(nextEv){
+    var dd2=Math.round((midnight(mdDate(nextEv.md))-t0)/86400000), ev=document.getElementById("evNext");
+    ev.innerHTML='<span class="ev-tag">'+nextEv.nm+'</span><span class="ev-when">'+dstr(mdDate(nextEv.md))+
+      (nextEv.tm?' '+nextEv.tm:'')+'</span><span class="ev-dd">'+(dd2===1?"내일":"D-"+dd2)+'</span>';
+    ev.hidden=false;
+  } else { document.getElementById("evNext").hidden=true; }
+}
+renderHero();
+
+/* ── 안내문 ──────────────────────────────────────────────────────── */
+/* 260811: 이번 달에 알아야 할 공지만 위에 남긴다. 다른 달 이야기뿐인 공지는 아래 드롭다운으로 내린다.
+   날짜가 하나도 없는 일반 안내는 달과 무관하므로 그대로 위에 둔다. */
+var NOTI_NOW=[], NOTI_LATER=[];
+(function(){
+  var m0=new Date().getMonth()+1;
+  (D.notices||[]).forEach(function(x){
+    var txt=String(x).replace(/<[^>]+>/g,""), ms=[], m;
+    var re1=/(\d{1,2})\s*\/\s*\d{1,2}/g, re2=/(\d{1,2})\s*월/g;
+    while((m=re1.exec(txt))) ms.push(+m[1]);
+    while((m=re2.exec(txt))) ms.push(+m[1]);
+    ms=ms.filter(function(v){ return v>=1&&v<=12; });
+    if(!ms.length || ms.indexOf(m0)>=0) NOTI_NOW.push(x); else NOTI_LATER.push(x);
+  });
+  var n=document.getElementById("noticeBox");
+  if(!NOTI_NOW.length) return;
+  n.innerHTML=NOTI_NOW.map(function(x){return "<div>"+x+"</div>";}).join(""); n.hidden=false;
+})();
+
+/* ── 주간 시간표 ─────────────────────────────────────────────────── */
+var mtabsEl=document.getElementById("mtabs"), tabsEl=document.getElementById("tabs");
+var MATEON=false;
+try{ MATEON = !!MATE && localStorage.getItem("mateOn")==="1"; }catch(e){}
+function mateOn(){ return !!(MATEON && MATE); }
+function WKS(){ return (mateOn() && MATE.weeks && MATE.weeks.length) ? MATE.weeks : D.weeks; }
+function MOS(){ return (mateOn() && MATE.months && MATE.months.length) ? MATE.months : D.months; }
+/* 표는 실제 수업이 있는 시간대만 그린다(빈 줄로 길어지지 않게).
+   범위를 벗어나는 면담은 표를 늘리는 대신 날짜 칸 위에 표시 → 표 높이가 들쭉날쭉하지 않는다. */
+var PX=70, T0, T1, COLH;
+function setRange(days){
+  T0=D.t0; T1=D.t1;
+  if(mateOn()){ for(var k in MATE.courses){ T0=Math.min(T0,Math.floor(MATE.courses[k].s)); T1=Math.max(T1,Math.ceil(MATE.courses[k].e)); } }
+  /* 260810: 면담도 표 안에 블록으로 그린다 → 그 주 면담 시각을 표 범위에 포함시킨다.
+     그 주에 면담이 없으면 범위는 그대로라 표가 괜히 길어지지 않는다. */
+  (days||[]).forEach(function(d){ (EVBY[d[1]]||[]).forEach(function(e){
+    if(e.t==null) return;
+    T0=Math.min(T0,Math.floor(e.t)); T1=Math.max(T1,Math.ceil(e.t+1));
+  }); });
+  /* 260831: 내 일정도 표 안에 그린다 → 범위 밖이면 블록이 잘리므로 시간 범위를 함께 넓힌다. */
+  (days||[]).forEach(function(d){ mineOnDay(d[0]).forEach(function(m){
+    T0=Math.min(T0,Math.floor(m.s)); T1=Math.max(T1,Math.ceil(m.e));
+  }); });
+  COLH=(T1-T0)*PX;
+}
+var EVBY={}; EVENTS.forEach(function(e){ (EVBY[e.md]=EVBY[e.md]||[]).push(e); });
+function evInGrid(e){ return e.t!=null && e.t>=T0 && e.t+1<=T1; }
+function buildMTabs(){
+  var MO=MOS();
+  mtabsEl.innerHTML="";
+  MO.forEach(function(mo,i){
+    var b=document.createElement("button"); b.className="tab"; b.type="button"; b.textContent=mo.label;
+    b.onclick=function(){ selMonth(i,0); }; mtabsEl.appendChild(b);
+  });
+  /* 260812 오영선님 지시: 주간 표는 해당 주차만 본다 → 월·주 탭 줄을 노출하지 않는다.
+     탭 요소는 선택 상태를 쓰는 코드가 있어 DOM에는 남기고 화면에서만 감춘다. */
+  mtabsEl.hidden = true;
+}
+function selMonth(mi,wi){
+  var MO=MOS(); if(!MO.length) return;
+  if(mi>=MO.length) mi=MO.length-1; if(mi<0) mi=0;
+  Array.prototype.forEach.call(mtabsEl.children,function(b,i){b.classList.toggle("on",i===mi);b.setAttribute("aria-pressed",i===mi?"true":"false");});
+  tabsEl.innerHTML=""; D.curM=mi;
+  var WS=WKS();
+  MO[mi].weeks.forEach(function(wIdx,j){
+    var b=document.createElement("button"); b.className="tab"; b.type="button"; b.textContent=WS[wIdx].label;
+    b.onclick=function(){selWeek(j);}; tabsEl.appendChild(b);
+  });
+  tabsEl.hidden = true;                      /* 주 선택 탭도 감춘다(260812) */
+  if(wi>=MO[mi].weeks.length) wi=MO[mi].weeks.length-1;
+  selWeek(wi<0?0:wi);
+}
+function sessOn(md){ var o=[]; for(var k in D.sessions) if(D.sessions[k].indexOf(md)>=0 && keepK(k,MIXMODE)) o.push(k); return o; }
+function mateSessOn(md){ var o=[]; if(!mateOn()) return o;
+  for(var k in MATE.sessions) if(MATE.sessions[k].indexOf(md)>=0) o.push(k); return o; }
+function assignLanes(items){
+  /* 시간이 실제로 겹치는 수업만 좌우로 나눈다(겹침 미인지 방지) */
+  var its=items.slice().sort(function(a,b){return a.s-b.s;});
+  var laneEnds=[], laneOf={};
+  its.forEach(function(it){
+    var li=laneEnds.findIndex(function(end){return end<=it.s;});
+    if(li===-1){ li=laneEnds.length; laneEnds.push(it.e); } else { laneEnds[li]=it.e; }
+    laneOf[it.id]=li;
+  });
+  var lanes=laneEnds.length;
+  var overlap=its.some(function(a){return its.some(function(b){return a.id!==b.id && a.s<b.e && b.s<a.e;});});
+  if(!overlap) lanes=1;
+  return {laneOf:laneOf,lanes:lanes};
+}
+function laneStyleOf(lz,id){
+  if(lz.lanes<=1) return "";
+  /* 260831: 칸을 lanes 수만큼 쪼개면 375px 5열에서 한 칸이 28px가 되어 이름이 한 자씩 잘린다.
+     쪼개는 대신 뒤 블록을 오른쪽으로 밀어 겹쳐 올린다(달력 앱 관행). 각 블록이 폭 대부분을 지키고
+     실제로 시간이 겹치는 구간에서만 앞 블록이 가려진다. */
+  var li=lz.laneOf[id];
+  return "left:"+(2+14*li)+"px;right:2px;width:auto;z-index:"+(2+li)+";";
+}
+function selWeek(j){
+  D.curW=j;
+  Array.prototype.forEach.call(tabsEl.children,function(b,i){b.classList.toggle("on",i===j);b.setAttribute("aria-pressed",i===j?"true":"false");});
+  var MO=MOS(), WS=WKS(), w=WS[MO[D.curM].weeks[j]], viewM=MO[D.curM].m, dl=w.days;
+  /* 260831: 주말 수업이 있는 학생은 7칸이 한 화면에 안 들어간다. 평일 5칸과 주말 2칸으로 갈라
+     한쪽씩 보여 주고 스와이프·단추로 바꾼다. 그 주에 한쪽만 수업이 있으면 그쪽을 자동으로 고른다. */
+  var SP=splitDays(dl), seg=document.getElementById("wkSeg"), hint=document.getElementById("swipeHint");
+  if(SP.we.length){
+    var haveWe=SP.we.some(function(d){ return !D.off[d[1]] && (sessOn(d[1]).length || (EVBY[d[1]]||[]).length); });
+    var haveWd=SP.wd.some(function(d){ return !D.off[d[1]] && (sessOn(d[1]).length || (EVBY[d[1]]||[]).length); });
+    if(!WKPIN){
+      if(haveWe && !haveWd) WKMODE="we";
+      else if(haveWd && !haveWe) WKMODE="wd";
+    }
+    dl = (WKMODE==="we") ? SP.we : SP.wd;
+    if(seg){ seg.hidden=false;
+      document.getElementById("wkWd").classList.toggle("on",WKMODE==="wd");
+      document.getElementById("wkWe").classList.toggle("on",WKMODE==="we");
+      document.getElementById("wkWd").setAttribute("aria-pressed",WKMODE==="wd"?"true":"false");
+      document.getElementById("wkWe").setAttribute("aria-pressed",WKMODE==="we"?"true":"false"); }
+    if(hint) hint.hidden=false;
+  } else { if(seg) seg.hidden=true; if(hint) hint.hidden=true; }
+  setRange(dl);   /* 그 주 면담과 내 일정까지 반영해 표 시간 범위를 잡는다 */
+  document.getElementById("weekLabel").textContent=dl[0][1]+"("+dl[0][0]+") ~ "+dl[dl.length-1][1]+"("+dl[dl.length-1][0]+")";
+  var h='<div class="corner"></div>';
+  dl.forEach(function(d){
+    var other=Number(d[1].split("/")[0])!==viewM, isT=(d[1]===TODAY_MD);
+    /* 시간이 겹치는 수업이 있는 날만 개수 표시(그 외에는 블록으로 이미 보인다) */
+    var ks=D.off[d[1]]?[]:sessOn(d[1]);
+    var dup=ks.some(function(a){return ks.some(function(b){return a!==b && D.courses[a].s<D.courses[b].e && D.courses[b].s<D.courses[a].e;});});
+    var evTag=(EVBY[d[1]]||[]).filter(function(e){return !evInGrid(e);})
+      .map(function(e){return '<span class="evtag">'+e.nm+(e.tm?" "+e.tm:"")+'</span>';}).join("");
+    h+='<div class="dayh'+(other?" sep-day":"")+(isT?" today-h":"")+'"'+(isT?' aria-current="date"':'')+'>'+
+       '<span class="wd">'+d[0]+'</span>'+
+       '<span class="dt"><span class="sr">'+d[1]+' </span>'+d[1].split("/")[1]+'</span>'+
+       (isT?'<span class="todaylbl">오늘</span>':'')+
+       (dup?'<span class="daycnt">겹침 '+ks.length+'개</span>':'')+evTag+'</div>';
+  });
+  h+='<div class="timecol" style="height:'+COLH+'px">';
+  for(var t=T0;t<=T1;t++) h+='<span class="tlabel" aria-hidden="true" style="top:'+((t-T0)*PX)+'px">'+t+'</span>';
+  h+='</div>';
+  dl.forEach(function(d){
+    var other=Number(d[1].split("/")[0])!==viewM, isT=(d[1]===TODAY_MD);
+    h+='<div class="daycol'+(other?" sep-col":"")+(isT?" today-col":"")+'" role="group" aria-label="'+
+       d[1]+'('+d[0]+')'+(isT?' 오늘':'')+'" style="height:'+COLH+'px">';
+    for(var t=T0+1;t<T1;t++) h+='<div class="hline" style="top:'+((t-T0)*PX)+'px"></div>';
+    /* 지금 시각 선(캘린더 앱 공통 규칙) → 오늘 칸에만, 표 시간 범위 안일 때만 */
+    if(isT){ var nw=new Date(), nh=nw.getHours()+nw.getMinutes()/60;
+      if(nh>=T0 && nh<=T1) h+='<div class="nowline" style="top:'+((nh-T0)*PX)+'px"></div>'; }
+    if(D.off[d[1]]){ h+='<div class="off-day" aria-hidden="true"></div><div class="off-tag" role="note">'+D.off[d[1]]+'</div>'; }
+    else {
+      var keys=sessOn(d[1]), mkeys=mateSessOn(d[1]), together={};
+      /* 두 사람이 같은 반이면 칸을 나누지 않고 "함께" 표시만 붙인다 */
+      if(mkeys.length){
+        var rest=[];
+        mkeys.forEach(function(mk){
+          var mc=MATE.courses[mk], hit=null;
+          keys.forEach(function(k){ var c=D.courses[k];
+            if(!hit && c.s===mc.s && c.e===mc.e && c.nm===mc.nm && (c.room||"")===(mc.room||"")) hit=k; });
+          if(hit) together[hit]=1; else rest.push(mk);
+        });
+        mkeys=rest;
+      }
+      /* 면담도 수업과 같은 칸을 쓰므로 겹침 계산에 함께 넣는다(겹쳐 그려지지 않게) */
+      var evs=(EVBY[d[1]]||[]).filter(evInGrid);
+      var mn=mineOnDay(d[0]);
+      var lz=assignLanes(keys.map(function(k){return {id:"O|"+k,s:D.courses[k].s,e:D.courses[k].e};})
+        .concat(mkeys.map(function(k){return {id:"M|"+k,s:MATE.courses[k].s,e:MATE.courses[k].e};}))
+        .concat(evs.map(function(e,i){return {id:"E|"+i,s:e.t,e:e.t+1};}))
+        .concat(mn.map(function(m,i){return {id:"P|"+i,s:m.s,e:m.e};})));
+      keys.forEach(function(k){
+        var c=D.courses[k], top=(c.s-T0)*PX, hh=(c.e-c.s)*PX-3, fl=D.flags[k+"|"+d[1]];
+        var ln=hh>=88?" ln3":(hh<60?" ln1":"");
+        h+='<div class="blk '+c.cls+ln+(isT?" today-blk":"")+(lz.lanes>1?" blk-split":"")+'" role="img" aria-label="'+
+           att(c.nm)+' '+hhmm(c.s)+'~'+hhmm(c.e)+(c.room?' '+att(c.room):'')+(fl?' '+att(fl):'')+'" style="top:'+top+'px;height:'+hh+'px;'+laneStyleOf(lz,"O|"+k)+'">'+
+           '<b>'+shortNm(c.nm)+'</b><span class="rm">'+hhmm(c.s)+'</span>'+
+           (c.room&&hh>=88?'<span class="rm">'+c.room+'</span>':'')+
+           ((hh>=120&&(fl||together[k]))?'<span class="flag">'+(fl||"함께")+'</span>':'')+'</div>';
+      });
+      mkeys.forEach(function(k){
+        var c=MATE.courses[k], top=(c.s-T0)*PX, hh=(c.e-c.s)*PX-3;
+        h+='<div class="blk mate ln1'+(lz.lanes>1?" blk-split":"")+'" role="img" style="top:'+top+'px;height:'+hh+'px;'+laneStyleOf(lz,"M|"+k)+'" aria-label="'+att(MATE.name)+'님 수업 '+att(c.nm)+' '+hhmm(c.s)+'~'+hhmm(c.e)+'">'+
+           '<b>'+MATE.name+'</b><span class="rm">'+shortNm(c.nm)+'</span>'+(hh>=80?'<span class="rm">'+hhmm(c.s)+'</span>':'')+'</div>';
+      });
+      evs.forEach(function(e,i){          /* 시간 미상 면담만 날짜 칸 위 태그로 표시된다 */
+        h+='<div class="blk ev'+(lz.lanes>1?" blk-split":"")+'" role="img" aria-label="'+att(e.nm)+(e.tm?' '+att(e.tm):'')+'" style="top:'+((e.t-T0)*PX)+'px;height:'+(PX-3)+'px;'+laneStyleOf(lz,"E|"+i)+'">'+
+           '<b>'+e.nm+'</b><span class="rm">'+(e.tm||"")+'</span></div>';
+      });
+      mn.forEach(function(m,i){           /* 내 일정. 학원 수업이 아니므로 색 없이 빗금으로만 둔다 */
+        var top=(m.s-T0)*PX, hh=(m.e-m.s)*PX-3;
+        h+='<button type="button" class="blk mine'+(lz.lanes>1?" blk-split":"")+'" data-mi="'+MINE.indexOf(m)+'" aria-label="내 일정 '+att(m.nm)+' '+hhmm(m.s)+'~'+hhmm(m.e)+' · 누르면 지웁니다" style="top:'+top+'px;height:'+hh+'px;'+laneStyleOf(lz,"P|"+i)+'">'+
+           '<span class="del" aria-hidden="true">×</span><b>'+m.nm+'</b>'+(hh>=60?'<span class="rm">'+hhmm(m.s)+'</span>':'')+'</button>';
+      });
+    }
+    h+='</div>';
+  });
+  var g=document.getElementById("grid");
+  /* 260831: 화면 폭에 맞춰 열을 줄여 봤더니 한 칸 56px에서 과목명이 안 읽혔다.
+     읽히는 폭(112px)을 지키고, 화면을 넘치면 옆으로 밀어 보게 한다(아래 안내 줄). */
+  g.style.gridTemplateColumns="40px repeat("+dl.length+",minmax(112px,1fr))";
+  g.innerHTML=h;
+  g.onclick=function(e){
+    var b=e.target&&e.target.closest?e.target.closest("[data-mi]"):null;
+    if(!b) return;
+    var i=Number(b.getAttribute("data-mi")), m=MINE[i];
+    if(!m) return;
+    if(!confirm("'"+m.nm+"' 일정을 지울까요?")) return;
+    MINE.splice(i,1); mineSave(); mineDraw(); repaintAll(); renderLater();
+  };
+}
+function renderLegend(){
+  /* 260831: 학원·개인을 갈라 보면 화면에 없는 계열이 범례에 남는다 → 지금 보이는 계열만 남긴다 */
+  var h=D.legend.filter(function(l){
+    var dp=l.cls.replace(/^sw-/,"");
+    return Object.keys(D.courses).some(function(k){ return D.courses[k].dept===dp && keepK(k,MIXMODE); });
+  }).map(function(l){
+    return '<span><i aria-hidden="true" style="background:var(--'+l.cls+'-bg);box-shadow:inset 0 0 0 1px var(--'+l.cls+'-tx)"></i>'+l.label+'</span>';
+  }).join("");
+  if(EVENTS.length) h+='<span><i aria-hidden="true" style="background:var(--ev-bg);box-shadow:inset 0 0 0 2px var(--ev)"></i>면담</span>';
+  if(mateOn()) h+='<span><i class="lg-mate" aria-hidden="true"></i>'+MATE.name+'님 수업(빗금)</span>';
+  if(MINE_ON && MINE.length && MIXMODE!=="aca") h+='<span><i class="lg-mine" aria-hidden="true"></i>내 일정</span>';
+  document.getElementById("legend").innerHTML=h;
+}
+
+/* ── 과목별 정리 ─────────────────────────────────────────────────── */
+var COPY_SVG='<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+var CHECK_SVG='<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+function noticeText(k){
+  var c=D.courses[k];
+  /* 260806 포맷 변경: 과목·요일·강의실을 한 줄로 합치고, 날짜는 MM.DD 축약. 강의실 단독 줄 폐지 */
+  function mmdd(md){ var d=mdDate(md); return ("0"+(d.getMonth()+1)).slice(-2)+"."+("0"+d.getDate()).slice(-2); }
+  var wk=dayCode(k), dur=Math.round(c.e-c.s);
+  /* 과목명 끝 괄호(방학특강 등)는 요일 뒤로 붙여 "월화수목금(방학특강)" 형태로 */
+  var nm=c.nm.replace(/<[^>]+>/g,"").trim(), tag="", m=nm.match(/\s*\(([^()]*)\)\s*$/);
+  if(m){ tag="("+m[1]+")"; nm=nm.slice(0,m.index).trim(); }
+  var seg=[nm];
+  if(wk) seg.push(wk+tag); else if(tag) seg.push(tag);
+  if(c.room) seg.push(c.room+" 강의실");
+  var t="[개강 안내]\n- 과목 : "+seg.join(" / ")+"\n";
+  if(c.span) t+="- 개강일: "+mmdd(c.span[0])+" ~ 종강일: "+mmdd(c.span[1])+"\n";
+  t+="- 수업시간 : "+c.tm+" ("+dur+"H)\n";
+  var z=zoomFor(c.room);
+  if(z) t+="\n[비대면 ZOOM 정보]\n- 링크 : "+z[2]+"\n- 회의 ID : "+z[0]+"\n- 비밀번호 : "+z[1]+"\n- 비대면 수업 시 위 링크로 접속해 주세요. (수업 시작 5분 전 입장)\n";
+  var b=bookFor(c.nm);
+  if(b) t+="\n[교재 안내]\n- 교재 : "+b.t+" https://kedustore.com/books/detail.asp?pdt_seq="+b.seq+" (현장 구매 불가, 온라인 주문·방문수령 가능)\n";
+  return t;
+}
+function copyNotice(btn){
+  var k=btn.getAttribute("data-k"), o=btn.innerHTML;
+  navigator.clipboard.writeText(noticeText(k)).then(function(){ btn.innerHTML=CHECK_SVG; btn.classList.add("ok");
+    setTimeout(function(){ btn.innerHTML=o; btn.classList.remove("ok"); },1200); });
+}
+/* 과목 정렬: 오늘 수업 → 다음 수업이 가까운 순 → 이미 끝난 과목. 지금 볼 것이 맨 위로 온다 */
+function nextDd(k){
+  var t0=todayMid(), ss=D.sessions[k]||[];
+  for(var i=0;i<ss.length;i++){ var g=Math.round((midnight(mdDate(ss[i]))-t0)/86400000); if(g>=0) return g; }
+  /* 260811: 표 범위 밖(뒷달)이라 수업일이 아직 생성되지 않은 과목은 기간 시작일로 남은 일수를 센다.
+     이 보정이 없으면 다음 학기 과목이 "종료"로 표시되고 종강 필터에도 함께 걸려 사라진다. */
+  var sp=D.courses[k].span;
+  if(sp && sp[0]){ var g2=Math.round((midnight(mdDate(sp[0]))-t0)/86400000); if(g2>=0) return g2; }
+  return null;   /* 남은 수업 없음 = 종강 */
+}
+/* 260811: 종강한 과목은 카드 목록에서 즉시 내린다(남은 수업 0회 = 마지막 수업 다음 날부터 사라짐).
+   지난 이력은 아래 전체 로드맵에 남으므로 데이터는 지우지 않고 표시만 거른다. */
+var LIVE = Object.keys(D.courses).filter(function(k){ return nextDd(k)!==null; }).sort(function(a,b){
+  var x=nextDd(a), y=nextDd(b);
+  if(x===null && y===null) return D.courses[a].s-D.courses[b].s;
+  if(x===null) return 1;
+  if(y===null) return -1;
+  return x!==y ? x-y : D.courses[a].s-D.courses[b].s;
+});
+/* 260811: 이번 달에 듣는 수업만 위에 둔다. 뒷달 수업·미배정 과목·다른 달 공지는 아래 드롭다운으로 접는다. */
+var NOWM=new Date().getMonth()+1;
+function monthsOf(k){
+  var sp=D.courses[k].span, ms=[];
+  if(sp&&sp[0]&&sp[1]){ var a=mdDate(sp[0]).getMonth()+1, b=mdDate(sp[1]).getMonth()+1;
+    for(var m=a;m<=b;m++) ms.push(m); }
+  (D.sessions[k]||[]).forEach(function(md){ var m=mdDate(md).getMonth()+1; if(ms.indexOf(m)<0) ms.push(m); });
+  return ms;
+}
+/* 260831 오영선님 지시: 이번 달 전 과목을 늘어놓으면 목록이 끝없이 길다.
+   가장 가까운 수업일 하루치(=오늘 수업이 있으면 오늘 요일분)만 올리고 나머지는 "이후 일정 보기"로 내린다. */
+var GAP0 = LIVE.length ? Math.min.apply(null, LIVE.map(nextDd)) : null;
+var THISM = LIVE.filter(function(k){ return nextDd(k)===GAP0; });
+var LATER = LIVE.filter(function(k){ return THISM.indexOf(k)<0; });
+function courseCard(k){
+  var c=D.courses[k], ss=D.sessions[k]||[], t0=todayMid();
+  var dur=Math.round((c.e-c.s)*10)/10;
+  var gap=nextDd(k), isToday=(gap===0);
+  /* 260812 중복 정리: 오늘 수업은 바로 아래 큰 줄에 시각·강의실·ZOOM이 이미 나오므로
+     메타에서 시각·강의실을 빼고, "오늘" 배지도 상단 오늘 배지와 겹치므로 생략한다. */
+  /* 강의실은 과목명 줄로 올렸으므로(260812) 메타에서는 뺀다 */
+  var meta=[dayCode(k)];
+  if(isToday) meta.push(dur+"H"); else meta.push(c.tm+" ("+dur+"H)");
+  var dd = gap===null ? '<span class="c-dd off">종료</span>'
+         : gap===0 ? ''
+         : '<span class="c-dd">'+(gap===1?"내일":"D-"+gap)+'</span>';
+  var done=ss.filter(function(md){return mdDate(md).getTime()<t0;}).length, tot=ss.length;
+  var days="";
+  /* 지난 회차는 흐림+취소선으로 보인다. 둘 다 소리로는 읽히지 않으므로
+     눈에 안 보이는 글(.sr)로 "지난 회차 N회"를 먼저 알린다(260824). */
+  if(tot){ days='<div class="c-days">'+
+      (done?'<span class="sr">지난 회차 '+done+'회는 흐리게·취소선으로 표시했습니다. </span>':'')+
+      ss.map(function(md){
+      var d=mdDate(md), lab=md+"("+WKD[(d.getDay()+6)%7]+")";
+      if(md===TODAY_MD) return "<b>"+lab+"</b>";
+      return d.getTime()<t0 ? "<s>"+lab+"</s>" : lab;
+    }).join(" · ")+'</div>'; }
+  var prog="";
+  if(tot){ var pc=Math.round(done/tot*100);
+    prog='<details class="c-prog-d"><summary class="c-prog"><span class="cbar"><i style="width:'+pc+'%;background:var(--'+c.cls+'-tx)"></i></span>'+
+         '<span class="c-pn">'+tot+'회 중 '+done+'회</span><span class="c-more">수업일 보기</span></summary>'+days+'</details>'; }
+  /* 개강·종강 표기(c.tag)는 아래 기간 줄과 겹치므로 D-day 배지로 대신한다(260810 통합) */
+  /* ZOOM 바로가기(260811): 과목마다 본인 강의실 ZOOM으로 바로 들어간다. 종강한 과목에도 남긴다.
+     오늘 수업 줄에 큰 ZOOM 버튼이 이미 뜨는 동안만 빼서 같은 카드에 버튼이 둘로 겹치지 않게 한다. */
+  var zc=zoomFor(c.room), nh=(function(){ var n=new Date(); return n.getHours()+n.getMinutes()/60; })();
+  var zm = (zc && !(isToday && nh<c.e))
+    ? '<a class="c-zm" href="'+zc[2]+'" target="_blank" rel="noopener" title="ZOOM 입장" aria-label="'+att(c.nm)+' 비대면 ZOOM 입장">'+ZOOM_SVG+'ZOOM</a>' : '';
+  /* 260824: 종강 줄은 흐리게 보인다. 흐림은 소리로 읽히지 않으므로 줄 이름에 "종료"를 넣는다
+     (예: aria-label="포토샵/A 종료"). 눈에 보이는 "종료" 배지도 그대로 남는다. */
+  return '<div class="crow'+(isToday?" today":"")+(gap===null?" over":"")+'"'+
+    (gap===null?' role="group" aria-label="'+att(c.nm)+' 종료"':'')+'>'+
+    '<div class="c-h"><span class="c-bar" style="background:var(--'+c.cls+'-tx)"></span>'+
+    '<span class="c-nm">'+c.nm+'</span>'+
+    '<span class="c-when">'+meta.join(" ")+'</span>'+
+    (c.room?'<span class="c-rm">'+c.room+'</span>':'')+
+    '<button class="c-copy" data-k="'+k+'" onclick="copyNotice(this)" aria-label="개강안내 복사" title="개강안내 복사">'+COPY_SVG+'</button>'+
+    dd+zm+'</div>'+
+    (isToday?todayLine(k):"")+
+    /* 260905: 기간 줄을 항상 보여준다. 260812에 "회차 목록의 처음·끝과 같다"는 이유로 목록이 있으면
+       뺐는데 그 목록은 접혀 있어서, 펼치기 전에는 개강일·종강일이 화면 어디에도 없었다.
+       오영선님 지적 "맞춤링크에 개강일 종강일이 없으니까 헷갈리잖아". 무슨 날짜인지 라벨도 붙인다 */
+    (c.span?'<div class="c-meta">개강 '+c.span[0]+" ~ 종강 "+c.span[1]+'</div>':"")+prog+'</div>';
+}
+function pendCard(p){
+  return '<div class="crow"><div class="c-h"><span class="c-bar" style="background:var(--ink-faint)"></span>'+
+    '<span class="c-nm">'+p.name+'</span><span class="c-tag">배정 조율 중</span></div>'+
+    '<div class="c-meta">개강일이 정해지면 문자로 안내드립니다.</div></div>';
+}
+function renderCourses(){
+  var ks=THISM.filter(function(k){ return keepK(k,MIXMODE); });
+  document.getElementById("courses").innerHTML = ks.length ? ks.map(courseCard).join("")
+    : '<div class="c-none">예정된 수업이 없습니다. 안내 탭의 이후 일정 보기에서 확인해 주세요.</div>';
+}
+renderCourses();
+
+/* ── 이후 수업·안내(드롭다운) ────────────────────────────────────── */
+function renderLater(){
+  var sec=document.getElementById("laterSec"), body=document.getElementById("laterBody");
+  if(!sec||!body) return;
+  /* 배정 조율 중과 이후 안내는 학원 쪽 정보라 개인만 보기에서는 빼둔다 */
+  var ks=LATER.filter(function(k){ return keepK(k,LTMODE); });
+  var pend=(LTMODE==="per") ? [] : (D.pending||[]);
+  var noti=(LTMODE==="per") ? [] : NOTI_LATER;
+  if(!(LATER.length+(D.pending||[]).length+NOTI_LATER.length)) return;
+  var html="";
+  if(ks.length)   html+='<div class="lt-lbl">이후 수업</div>'+ks.map(courseCard).join("");
+  if(pend.length) html+='<div class="lt-lbl">배정 조율 중</div>'+pend.map(pendCard).join("");
+  if(noti.length) html+='<div class="lt-lbl">이후 안내</div><div class="notice lt-noti">'+
+    noti.map(function(x){return "<div>"+x+"</div>";}).join("")+'</div>';
+  if(!html) html='<div class="c-none">이 구분에는 이후 일정이 없습니다.</div>';
+  body.innerHTML=html;
+  document.getElementById("laterSum").textContent="이후 일정 "+(ks.length+pend.length+noti.length)+"건 보기";
+  sec.hidden=false;
+}
+renderLater();
+
+/* ── 학원·개인 세그먼트 배선 ─────────────────────────────────────── */
+function repaintAll(){ selWeek(D.curW); renderLegend(); renderHero(); renderCourses(); }
+(function(){
+  function wire(segId, ids, get, set, redraw, key){
+    var seg=document.getElementById(segId); if(!seg) return;
+    /* 학원 수업만 있거나 개인 일정만 있는 학생에게는 고를 것이 없으므로 띄우지 않는다 */
+    if(!(hasPer() && hasAca())){ seg.hidden=true; return; }
+    seg.hidden=false;
+    var modes=["all","aca","per"];
+    function paint(){
+      ids.forEach(function(id,i){
+        var b=document.getElementById(id); if(!b) return;
+        b.classList.toggle("on", modes[i]===get());
+        b.setAttribute("aria-pressed", modes[i]===get()?"true":"false");
+      });
+    }
+    ids.forEach(function(id,i){
+      var b=document.getElementById(id); if(!b) return;
+      b.onclick=function(){ set(modes[i]); try{ localStorage.setItem(key,modes[i]); }catch(e){} paint(); redraw(); };
+    });
+    paint();
+  }
+  wire("mixSeg", ["mixAll","mixAca","mixPer"],
+       function(){return MIXMODE;}, function(v){MIXMODE=v;}, repaintAll, "mixMode");
+  wire("laterSeg", ["ltAll","ltAca","ltPer"],
+       function(){return LTMODE;}, function(v){LTMODE=v;}, renderLater, "laterMode");
+})();
+
+/* ── 전체 로드맵 ─────────────────────────────────────────────────── */
+(function(){
+  var TLM=(D.tl_months && D.tl_months.length) ? D.tl_months : [7,8,9];
+  var TL0=new Date(2026,TLM[0]-1,1).getTime(), TL1=new Date(2026,TLM[TLM.length-1],0).getTime();
+  var now=new Date(), todayLbl="", todayLine="";
+  if(now.getFullYear()===2026 && now.getTime()>=TL0 && now.getTime()<=TL1){
+    var p=(now.getTime()-TL0)/(TL1-TL0)*100;
+    var shift = p<7 ? "transform:translateX(0);" : (p>93 ? "transform:translateX(-100%);" : "");
+    todayLbl='<em class="tl-today-lbl" style="left:'+p+'%;'+shift+'">오늘</em>';
+    todayLine='<div class="tl-today" style="left:'+p+'%"></div>';
+  }
+  var h='<div class="tl-months">'+TLM.map(function(m){return '<span>'+m+'월</span>';}).join('')+todayLbl+'</div>';
+  var gi=''; for(var gk=1; gk<TLM.length; gk++){ gi+='<i style="left:'+pct(TLM[gk]+'/1',TL0,TL1).toFixed(1)+'%"></i>'; }
+  h+='<div class="tl-body"><div class="tl-grid">'+gi+todayLine+'</div>';
+  Object.keys(D.courses).forEach(function(k){
+    var c=D.courses[k]; if(!c.span) return;
+    var l=pct(c.span[0],TL0,TL1), r=pct(c.span[1],TL0,TL1);
+    h+='<div class="tl-row"><span class="tl-name">'+shortNm(c.nm.replace(/<[^>]+>/g,""))+'</span><span class="tl-track">'+
+       '<span class="tl-bar" style="left:'+l+'%;width:'+Math.max(r-l,4)+'%;background:var(--'+c.cls+'-bg);color:var(--'+c.cls+'-tx)">'+c.span[0]+'~'+c.span[1]+'</span></span></div>';
+  });
+  (D.pending||[]).forEach(function(p){
+    h+='<div class="tl-row"><span class="tl-name">'+p.name+'</span><span class="tl-track"><span class="tl-bar pend" style="left:0%;width:100%">'+p.note+'</span></span></div>';
+  });
+  h+='</div><div class="tl-note">점선 = 배정 조율 중</div>';
+  document.getElementById("timeline").innerHTML=h;
+})();
+
+/* ── 동반 수강생 함께 보기 ───────────────────────────────────────── */
+function renderMateToday(){
+  var el=document.getElementById("mateToday");
+  if(!el) return;
+  if(!mateOn()){ el.hidden=true; el.innerHTML=""; return; }
+  var mb={};
+  Object.keys(MATE.sessions).forEach(function(k){ (MATE.sessions[k]||[]).forEach(function(md){ (mb[md]=mb[md]||[]).push(k); }); });
+  function line(k){ var c=MATE.courses[k]; return hhmm(c.s)+' '+shortNm(c.nm); }
+  var h='<span class="mt-tag">'+MATE.name+'님 오늘</span>';
+  var todays=(mb[TODAY_MD]||[]).sort(function(a,b){return MATE.courses[a].s-MATE.courses[b].s;});
+  if(todays.length) h+='<span class="mt-item">'+todays.map(line).join(" · ")+'</span>';
+  else{
+    var t0=todayMid();
+    var next=Object.keys(mb).map(function(md){return {md:md,d:mdDate(md)};})
+      .filter(function(x){return x.d.getTime()>t0;}).sort(function(a,b){return a.d-b.d;})[0];
+    if(next){ var nk=mb[next.md].sort(function(a,b){return MATE.courses[a].s-MATE.courses[b].s;});
+      h+='<span class="mt-none">오늘 수업 없음 · 다음 '+dstr(next.d)+'</span>'+line(nk[0]); }
+    else h+='<span class="mt-none">예정된 수업 없음</span>';
+  }
+  el.innerHTML=h; el.hidden=false;
+}
+function weekHasClass(wIdx){
+  var WS=WKS(), w=WS[wIdx];
+  if(!w) return false;
+  return w.days.some(function(d){ return !D.off[d[1]] && (sessOn(d[1]).length>0 || mateSessOn(d[1]).length>0); });
+}
+function autoSelect(){
+  var mi=0, wi=0, now=new Date(), MO=MOS(), WS=WKS();
+  if(!MO.length) return;
+  if(now.getFullYear()===2026){
+    MO.forEach(function(mo,i){ if(now.getMonth()+1===mo.m) mi=i; });
+    var t=now.getTime();
+    MO[mi].weeks.forEach(function(wIdx,j){
+      var w=WS[wIdx], p1=w.days[0][1].split("/").map(Number), p2=w.days[w.days.length-1][1].split("/").map(Number);
+      if(t>=new Date(2026,p1[0]-1,p1[1]).getTime() && t<=new Date(2026,p2[0]-1,p2[1],23,59).getTime()) wi=j;
+    });
+  }
+  /* 260812: 주 선택 탭을 없앴으므로 이번 주가 비어 있으면 빈 표가 그대로 남는다.
+     수업이 있는 가장 가까운 주(앞쪽 우선, 없으면 지난 주)로 옮겨 표가 비지 않게 한다. */
+  if(!weekHasClass(MO[mi].weeks[wi])){
+    var flat=[];
+    MO.forEach(function(mo,i){ mo.weeks.forEach(function(wIdx,j){ flat.push({i:i,j:j,w:wIdx}); }); });
+    var cur=0;
+    flat.forEach(function(x,n){ if(x.i===mi && x.j===wi) cur=n; });
+    var pick=null, a;
+    for(a=cur+1;a<flat.length;a++) if(weekHasClass(flat[a].w)){ pick=flat[a]; break; }
+    if(!pick) for(a=cur-1;a>=0;a--) if(weekHasClass(flat[a].w)){ pick=flat[a]; break; }
+    if(pick){ mi=pick.i; wi=pick.j; }
+  }
+  selMonth(mi,wi);
+}
+/* 배정 대기라 확정 수업이 0개면 주간 표 자체를 감춘다(빈 표를 보여주지 않는다) */
+if(!Object.keys(D.courses).length) document.getElementById("secWeek").hidden=true;
+else { buildMTabs(); autoSelect(); renderLegend(); }
+(function(){
+  if(!MATE || !Object.keys(D.courses).length) return;
+  var tg=document.getElementById("mateTg"), open=document.getElementById("mateOpen"), note=document.getElementById("mateNote");
+  tg.hidden=false;
+  document.getElementById("mateTgLbl").textContent=MATE.name+"님 함께 보기";
+  if(MATE.link){
+    open.hidden=false; open.href=MATE.link; open.textContent=MATE.name+"님 시간표 열기 →";
+    open.onclick=function(){ try{ sessionStorage.setItem("ttFrom",JSON.stringify({name:ME,to:MATE.name,url:location.href})); }catch(e){} };
+  }
+  function apply(){
+    tg.setAttribute("aria-pressed", mateOn()?"true":"false");
+    buildMTabs(); autoSelect(); renderLegend(); renderMateToday();
+    if(mateOn() && MATE.weNote){
+      note.textContent=MATE.name+"님 주말 수업은 이 표(평일 5일)에 나오지 않습니다. 위 링크에서 확인해 주세요.";
+      note.hidden=false;
+    } else note.hidden=true;
+  }
+  tg.onclick=function(){ MATEON=!MATEON;
+    try{ localStorage.setItem("mateOn", MATEON?"1":"0"); }catch(e){}
+    apply(); };
+  apply();
+})();
+
+/* ── 상단 탭 (260831) ────────────────────────────────────────────────
+   전환은 CSS가 한다. 주간 시간표는 첫 탭 안 오늘 수업 아래에 그대로 있으므로 열자마자 폭이 잡힌다.
+   여기서 하는 일은 창 크기가 바뀔 때 칸 너비를 다시 재는 것뿐이다. */
+(function(){
+  var t=null;
+  addEventListener("resize",function(){
+    clearTimeout(t); t=setTimeout(function(){ selWeek(D.curW); },96);
+  },{passive:true});
+})();
+
+/* ── 평일·주말 전환 · 스와이프 ───────────────────────────────────────
+   스와이프만 두면 그런 기능이 있는 줄 모르는 사람이 있고 키보드로는 아예 못 바꾼다.
+   그래서 단추가 본체이고 스와이프는 덤이다. */
+(function(){
+  var wd=document.getElementById("wkWd"), we=document.getElementById("wkWe"),
+      wrap=document.querySelector(".ttwrap");
+  if(!wd||!we||!wrap) return;
+  function to(m){ WKPIN=true; if(WKMODE===m) return; WKMODE=m; selWeek(D.curW); }
+  wd.onclick=function(){ to("wd"); }; we.onclick=function(){ to("we"); };
+  var x0=null, y0=null;
+  wrap.addEventListener("touchstart",function(e){
+    if(document.getElementById("wkSeg").hidden) { x0=null; return; }
+    var t=e.changedTouches[0]; x0=t.clientX; y0=t.clientY;
+  },{passive:true});
+  wrap.addEventListener("touchend",function(e){
+    if(x0===null) return;
+    var t=e.changedTouches[0], dx=t.clientX-x0, dy=t.clientY-y0;
+    x0=null;
+    /* 표가 가로로 넘칠 때는 사용자가 표를 미는 중이므로 탭 전환으로 가로채지 않는다. */
+    if(wrap.scrollWidth>wrap.clientWidth+2) return;
+    if(Math.abs(dx)<50 || Math.abs(dx)<Math.abs(dy)*1.5) return;
+    to(dx<0 ? "we" : "wd");
+  },{passive:true});
+})();
+
+/* ── 내 일정(학교 시간표 등) ─────────────────────────────────────────
+   이 기기 localStorage에만 남는다. 정적 페이지라 보낼 곳이 없고 학원도 볼 수 없다. */
+(function(){
+  var sw=document.getElementById("mineSw"), dS=document.getElementById("mineD"),
+      sS=document.getElementById("mineS"), eS=document.getElementById("mineE"),
+      nm=document.getElementById("mineNm"), add=document.getElementById("mineAdd"),
+      list=document.getElementById("mineList"), msg=document.getElementById("mineMsg");
+  if(!sw||!dS||!add) return;
+  WKD.forEach(function(w){ var o=document.createElement("option"); o.value=w; o.textContent=w+"요일"; dS.appendChild(o); });
+  for(var t=7;t<=23;t+=0.5){
+    [sS,eS].forEach(function(sel){ var o=document.createElement("option"); o.value=String(t); o.textContent=hhmm(t); sel.appendChild(o); });
+  }
+  sS.value="9"; eS.value="12";
+  function draw(){
+    sw.checked=MINE_ON;
+    list.innerHTML = MINE.length ? "" : "";
+    if(!MINE.length){ list.innerHTML='<li>넣어 둔 일정이 없습니다.</li>'; }
+    else {
+      list.innerHTML = MINE.map(function(m,i){
+        return '<li><span>'+m.d+' '+hhmm(m.s)+'~'+hhmm(m.e)+' · '+m.nm+'</span>'+
+               '<button class="mine-del" type="button" data-i="'+i+'">지우기</button></li>';
+      }).join("");
+      Array.prototype.forEach.call(list.querySelectorAll(".mine-del"),function(b){
+        b.onclick=function(){ MINE.splice(Number(b.getAttribute("data-i")),1); mineSave(); draw(); repaint(); };
+      });
+    }
+  }
+  function repaint(){ repaintAll(); renderLater(); }
+  mineDraw=draw;
+  sw.onchange=function(){ MINE_ON=sw.checked; mineSave(); repaint(); };
+  add.onclick=function(){
+    var s0=Number(sS.value), e0=Number(eS.value), t=(nm.value||"").trim();
+    if(!t){ msg.textContent="일정 이름을 적어 주세요."; nm.focus(); return; }
+    if(!(e0>s0)){ msg.textContent="끝 시각이 시작 시각보다 늦어야 합니다."; eS.focus(); return; }
+    MINE.push({d:dS.value, s:s0, e:e0, nm:t});
+    MINE.sort(function(a,b){ return WKD.indexOf(a.d)-WKD.indexOf(b.d) || a.s-b.s; });
+    if(!MINE_ON){ MINE_ON=true; }
+    mineSave(); nm.value=""; msg.textContent="넣었습니다. 시간표 탭에서 확인해 주세요.";
+    draw(); repaint();
+  };
+  draw();
+})();
+
+/* 첫 방문 안내(260828). 링크를 처음 연 사람에게만 뜨고, 닫으면 이 기기에서 다시 뜨지 않는다.
+   문구를 고쳐 다시 보이게 하려면 KEY의 v1을 올린다. localStorage를 막아 둔 브라우저(사생활 보호
+   모드 등)에서는 저장이 실패해 매번 뜨는데, 안 뜨는 것보다 낫다고 보고 그대로 둔다. */
+(function(){
+  var KEY="ttGuideSeen_v1";
+  var ov=document.getElementById("wmOv"), box=document.getElementById("wmBox"),
+      x=document.getElementById("wmClose"), ok=document.getElementById("wmOk");
+  if(!ov||!box||!x) return;
+  try{ if(localStorage.getItem(KEY)==="1") return; }catch(e){}
+  var opener=document.activeElement;
+  function focusables(){ return Array.prototype.filter.call(
+    box.querySelectorAll('a[href],button,[tabindex]:not([tabindex="-1"])'),
+    function(el){ return el.offsetParent!==null; }); }
+  /* 시트와 같은 이유로 Tab을 팝업 안에 가둔다. 뒤 화면으로 빠지면 돌아올 길이 없다. */
+  box.addEventListener("keydown",function(e){
+    if(e.key!=="Tab") return;
+    var f=focusables(); if(!f.length) return;
+    var first=f[0], last=f[f.length-1];
+    if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+  });
+  function close_(){
+    try{ localStorage.setItem(KEY,"1"); }catch(e){}
+    ov.classList.remove("on");
+    document.documentElement.style.overflow="";
+    setTimeout(function(){ ov.hidden=true; },192);
+    if(opener && opener.focus) opener.focus();
+  }
+  x.onclick=close_; if(ok) ok.onclick=close_;
+  ov.addEventListener("click",function(e){ if(e.target===ov) close_(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape" && ov.classList.contains("on")) close_(); });
+  ov.hidden=false;
+  document.documentElement.style.overflow="hidden";
+  /* 안내 시트와 같은 폴백. 프레임을 안 그리는 상황에서도 .on이 붙게 타이머를 함께 건다. */
+  var show=function(){ ov.classList.add("on"); };
+  requestAnimationFrame(show); setTimeout(show,40);
+  x.focus();
+})();
+
+</script>
+</body>
+</html>
